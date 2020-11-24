@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,8 +19,6 @@
 		FA3F8BC225527EA7006F833A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3F8BC125527EA7006F833A /* GoogleService-Info.plist */; };
 		FAD754EF25517BDA000CA1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */; };
 		FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */; };
-		FAD754F325517BDA000CA1C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754F225517BDA000CA1C6 /* ViewController.swift */; };
-		FAD754F625517BDA000CA1C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD754F425517BDA000CA1C6 /* Main.storyboard */; };
 		FAD754F825517BDC000CA1C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD754F725517BDC000CA1C6 /* Assets.xcassets */; };
 		FAD754FB25517BDC000CA1C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD754F925517BDC000CA1C6 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -41,8 +39,6 @@
 		FAD754EB25517BDA000CA1C6 /* MyCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAD754F225517BDA000CA1C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FAD754F525517BDA000CA1C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAD754F725517BDC000CA1C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD754FA25517BDC000CA1C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD754FC25517BDC000CA1C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,7 +70,6 @@
 				43929E32343741C30A68EBC9 /* Pods-MyCar.debug.xcconfig */,
 				F7291C5C057297DD63CF5CAA /* Pods-MyCar.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -133,8 +128,6 @@
 				FA3F8BAF25527D01006F833A /* Media */,
 				FA3F8BAE25527CF7006F833A /* Helpers */,
 				FA3F8BB825527D44006F833A /* ViewControllers */,
-				FAD754F225517BDA000CA1C6 /* ViewController.swift */,
-				FAD754F425517BDA000CA1C6 /* Main.storyboard */,
 				FAD754F725517BDC000CA1C6 /* Assets.xcassets */,
 				FAD754F925517BDC000CA1C6 /* LaunchScreen.storyboard */,
 				FA3F8BC125527EA7006F833A /* GoogleService-Info.plist */,
@@ -208,7 +201,6 @@
 				FA3F8BB725527D3A006F833A /* Preview.mp4 in Resources */,
 				FAD754FB25517BDC000CA1C6 /* LaunchScreen.storyboard in Resources */,
 				FAD754F825517BDC000CA1C6 /* Assets.xcassets in Resources */,
-				FAD754F625517BDA000CA1C6 /* Main.storyboard in Resources */,
 				FA3F8BC225527EA7006F833A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAD754F325517BDA000CA1C6 /* ViewController.swift in Sources */,
 				FAD754EF25517BDA000CA1C6 /* AppDelegate.swift in Sources */,
 				FA3F8BC025527D60006F833A /* SignUpViewController.swift in Sources */,
 				FA3F8BB125527D27006F833A /* Utilities.swift in Sources */,
@@ -276,14 +267,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FAD754F425517BDA000CA1C6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FAD754F525517BDA000CA1C6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FAD754F925517BDC000CA1C6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

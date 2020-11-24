@@ -7,7 +7,7 @@
 import Foundation
 import UIKit
 import AVKit
-import RealmSwift
+//import RealmSwift
 
 class StartUpViewController: UIViewController {
     
@@ -32,7 +32,8 @@ class StartUpViewController: UIViewController {
     let loginButton: UIButton = {
         let loginButton = UIButton()
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.setTitleColor(.rgb(red: 113, green: 134, blue: 255), for: .normal)
+//        loginButton.setTitleColor(.rgb(red: 113, green: 134, blue: 255), for: .normal)
+        loginButton.setTitleColor(.white, for: .normal)
         loginButton.layer.borderWidth = 1.3
         loginButton.layer.borderColor = UIColor.rgb(red: 113, green: 134, blue: 255).cgColor
         loginButton.layer.cornerRadius = 20
@@ -74,8 +75,8 @@ class StartUpViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let realm = try! Realm()
-        print(realm.configuration.fileURL?.absoluteString)
+//        let realm = try! Realm()
+//        print(realm.configuration.fileURL?.absoluteString)
     }
     
     @objc func signUpButtonTap(_:UIButton){
