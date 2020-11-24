@@ -47,3 +47,11 @@ extension UITextField{
         self.attributedPlaceholder = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor : color])
     }
 }
+
+extension UITabBar {
+    static func setTransparentTabbar () {
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().clipsToBounds = true
+    }
+}

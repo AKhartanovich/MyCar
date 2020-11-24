@@ -13,10 +13,17 @@
 		FA3F8BB625527D3A006F833A /* loginWalper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA3F8BB325527D3A006F833A /* loginWalper.jpg */; };
 		FA3F8BB725527D3A006F833A /* Preview.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FA3F8BB425527D3A006F833A /* Preview.mp4 */; };
 		FA3F8BBD25527D60006F833A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8BB925527D60006F833A /* LoginViewController.swift */; };
-		FA3F8BBE25527D60006F833A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8BBA25527D60006F833A /* HomeViewController.swift */; };
+		FA3F8BBE25527D60006F833A /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8BBA25527D60006F833A /* RootTabBarController.swift */; };
 		FA3F8BBF25527D60006F833A /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8BBB25527D60006F833A /* StartUpViewController.swift */; };
 		FA3F8BC025527D60006F833A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8BBC25527D60006F833A /* SignUpViewController.swift */; };
 		FA3F8BC225527EA7006F833A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3F8BC125527EA7006F833A /* GoogleService-Info.plist */; };
+		FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B868E256CFEBD00FFEC14 /* HomeViewController.swift */; };
+		FA5B8699256D036500FFEC14 /* GasolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B8698256D036500FFEC14 /* GasolineViewController.swift */; };
+		FA5B86A7256D1F0200FFEC14 /* fuelIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5B86A5256D1F0200FFEC14 /* fuelIcon.png */; };
+		FA5B86A8256D1F0200FFEC14 /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5B86A6256D1F0200FFEC14 /* homeIcon.png */; };
+		FA5B86B1256D271800FFEC14 /* GasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86B0256D271800FFEC14 /* GasStation.swift */; };
+		FA5B86B5256D316C00FFEC14 /* gasstation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA5B86B4256D316C00FFEC14 /* gasstation.jpg */; };
+		FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86B8256D33C500FFEC14 /* DatePicker.swift */; };
 		FAD754EF25517BDA000CA1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */; };
 		FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */; };
 		FAD754F825517BDC000CA1C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD754F725517BDC000CA1C6 /* Assets.xcassets */; };
@@ -32,10 +39,17 @@
 		FA3F8BB325527D3A006F833A /* loginWalper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginWalper.jpg; sourceTree = "<group>"; };
 		FA3F8BB425527D3A006F833A /* Preview.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Preview.mp4; sourceTree = "<group>"; };
 		FA3F8BB925527D60006F833A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		FA3F8BBA25527D60006F833A /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FA3F8BBA25527D60006F833A /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		FA3F8BBB25527D60006F833A /* StartUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 		FA3F8BBC25527D60006F833A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		FA3F8BC125527EA7006F833A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA5B868E256CFEBD00FFEC14 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FA5B8698256D036500FFEC14 /* GasolineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasolineViewController.swift; sourceTree = "<group>"; };
+		FA5B86A5256D1F0200FFEC14 /* fuelIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuelIcon.png; path = ../../../../../Downloads/fuelIcon.png; sourceTree = "<group>"; };
+		FA5B86A6256D1F0200FFEC14 /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homeIcon.png; path = ../../../../../Downloads/homeIcon.png; sourceTree = "<group>"; };
+		FA5B86B0256D271800FFEC14 /* GasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStation.swift; sourceTree = "<group>"; };
+		FA5B86B4256D316C00FFEC14 /* gasstation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gasstation.jpg; sourceTree = "<group>"; };
+		FA5B86B8256D33C500FFEC14 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		FAD754EB25517BDA000CA1C6 /* MyCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3F8BB025527D27006F833A /* Utilities.swift */,
+				FA5B86B8256D33C500FFEC14 /* DatePicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -84,6 +99,9 @@
 		FA3F8BAF25527D01006F833A /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				FA5B86B4256D316C00FFEC14 /* gasstation.jpg */,
+				FA5B86A5256D1F0200FFEC14 /* fuelIcon.png */,
+				FA5B86A6256D1F0200FFEC14 /* homeIcon.png */,
 				FA3F8BB225527D39006F833A /* home.jpg */,
 				FA3F8BB325527D3A006F833A /* loginWalper.jpg */,
 				FA3F8BB425527D3A006F833A /* Preview.mp4 */,
@@ -94,12 +112,22 @@
 		FA3F8BB825527D44006F833A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA3F8BBA25527D60006F833A /* HomeViewController.swift */,
+				FA3F8BBA25527D60006F833A /* RootTabBarController.swift */,
 				FA3F8BB925527D60006F833A /* LoginViewController.swift */,
 				FA3F8BBC25527D60006F833A /* SignUpViewController.swift */,
 				FA3F8BBB25527D60006F833A /* StartUpViewController.swift */,
+				FA5B868E256CFEBD00FFEC14 /* HomeViewController.swift */,
+				FA5B8698256D036500FFEC14 /* GasolineViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA5B86AF256D26EC00FFEC14 /* Gasstation */ = {
+			isa = PBXGroup;
+			children = (
+				FA5B86B0256D271800FFEC14 /* GasStation.swift */,
+			);
+			path = Gasstation;
 			sourceTree = "<group>";
 		};
 		FAD754E225517BDA000CA1C6 = {
@@ -127,6 +155,7 @@
 				FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */,
 				FA3F8BAF25527D01006F833A /* Media */,
 				FA3F8BAE25527CF7006F833A /* Helpers */,
+				FA5B86AF256D26EC00FFEC14 /* Gasstation */,
 				FA3F8BB825527D44006F833A /* ViewControllers */,
 				FAD754F725517BDC000CA1C6 /* Assets.xcassets */,
 				FAD754F925517BDC000CA1C6 /* LaunchScreen.storyboard */,
@@ -198,10 +227,13 @@
 			files = (
 				FA3F8BB525527D3A006F833A /* home.jpg in Resources */,
 				FA3F8BB625527D3A006F833A /* loginWalper.jpg in Resources */,
+				FA5B86A8256D1F0200FFEC14 /* homeIcon.png in Resources */,
 				FA3F8BB725527D3A006F833A /* Preview.mp4 in Resources */,
+				FA5B86A7256D1F0200FFEC14 /* fuelIcon.png in Resources */,
 				FAD754FB25517BDC000CA1C6 /* LaunchScreen.storyboard in Resources */,
 				FAD754F825517BDC000CA1C6 /* Assets.xcassets in Resources */,
 				FA3F8BC225527EA7006F833A /* GoogleService-Info.plist in Resources */,
+				FA5B86B5256D316C00FFEC14 /* gasstation.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,11 +288,15 @@
 			files = (
 				FAD754EF25517BDA000CA1C6 /* AppDelegate.swift in Sources */,
 				FA3F8BC025527D60006F833A /* SignUpViewController.swift in Sources */,
+				FA5B8699256D036500FFEC14 /* GasolineViewController.swift in Sources */,
 				FA3F8BB125527D27006F833A /* Utilities.swift in Sources */,
+				FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */,
 				FA3F8BBD25527D60006F833A /* LoginViewController.swift in Sources */,
 				FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */,
+				FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */,
 				FA3F8BBF25527D60006F833A /* StartUpViewController.swift in Sources */,
-				FA3F8BBE25527D60006F833A /* HomeViewController.swift in Sources */,
+				FA5B86B1256D271800FFEC14 /* GasStation.swift in Sources */,
+				FA3F8BBE25527D60006F833A /* RootTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
