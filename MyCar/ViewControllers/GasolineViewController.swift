@@ -48,8 +48,8 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
         return fullTank
     }()
     
-    let dateTextField: CustomTextField = {
-        let dateTextField = CustomTextField()
+    let dateTextField: DatePickerTextField = {
+        let dateTextField = DatePickerTextField()
         dateTextField.translatesAutoresizingMaskIntoConstraints = false
         return dateTextField
     }()

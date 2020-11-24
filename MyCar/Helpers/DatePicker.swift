@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTextField: UITextField {
+class DatePickerTextField: UITextField {
 
     lazy var datePicker: UIDatePicker = {
         let datePicker = UIDatePicker()
