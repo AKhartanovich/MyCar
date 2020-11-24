@@ -6,6 +6,11 @@
 	<dict>
 		<key>BoringSSL-GRPC.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
+=======
+			<key>isShown</key>
+			<false/>
+>>>>>>> tabbarcontroller
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -46,6 +51,11 @@
 		</dict>
 		<key>FirebaseFirestore.xcscheme</key>
 		<dict>
+<<<<<<< HEAD
+=======
+			<key>isShown</key>
+			<false/>
+>>>>>>> tabbarcontroller
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
@@ -97,21 +107,39 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>19</integer>
+<<<<<<< HEAD
+=======
 		</dict>
-		<key>Realm.xcscheme</key>
+		<key>abseil.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>0</integer>
+>>>>>>> tabbarcontroller
+		</dict>
+		<key>gRPC-C++-gRPCCertificates-Cpp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
-		<key>RealmSwift.xcscheme</key>
+		<key>gRPC-C++.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>gRPC-Core.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
+<<<<<<< HEAD
 		<key>abseil.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -134,6 +162,12 @@
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>
+=======
+		<key>leveldb-library.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+>>>>>>> tabbarcontroller
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>

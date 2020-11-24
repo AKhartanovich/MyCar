@@ -26,6 +26,7 @@ class LoginViewController: UIViewController {
     let emailTextField = UITextField()
         emailTextField.setPlaceHolderWith(color: .white, text: "Email:")
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
+        emailTextField.text = "khartanovichao@gmail.com"
         return emailTextField
     }()
     
@@ -33,6 +34,7 @@ class LoginViewController: UIViewController {
     let passwordTextField = UITextField()
         passwordTextField.setPlaceHolderWith(color: .white, text: "Password:")
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.text = "Qwerty123"
         return passwordTextField
     }()
     
@@ -69,6 +71,7 @@ class LoginViewController: UIViewController {
         super.loadView()
         view.backgroundColor = .white
         
+        
         view.addSubview(imageView)
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -87,6 +90,7 @@ class LoginViewController: UIViewController {
         emailTextField.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
         emailTextField.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
         emailTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        emailTextField.autocapitalizationType = .none
         emailTextField.textColor = .white
         createCustomTextField(emailTextField)
 
@@ -134,13 +138,17 @@ class LoginViewController: UIViewController {
         guard let password = passwordTextField.text else {return}
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if error != nil {
+            if let error = error {
                 self.errorLable.alpha = 1
-                self.errorLable.text = error!.localizedDescription
+                self.errorLable.text = error.localizedDescription
             } else {
-                let VC = HomeViewController.init()
-                self.view.window?.rootViewController = VC
-                self.view.window?.makeKeyAndVisible()
+                let HomeVC = HomeViewController.init()
+                let BaseNavigationController = UINavigationController()
+                BaseNavigationController.pushViewController(HomeVC, animated: true)
+                BaseNavigationController.modalPresentationStyle = .fullScreen
+                self.navigationController?.present(BaseNavigationController, animated: true, completion: .none)
+//                self.view.window?.rootViewController = HomeVC
+//                self.view.window?.makeKeyAndVisible()
             }
         }
     }
