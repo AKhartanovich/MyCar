@@ -24,6 +24,7 @@
 		FA5B86B1256D271800FFEC14 /* GasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86B0256D271800FFEC14 /* GasStation.swift */; };
 		FA5B86B5256D316C00FFEC14 /* gasstation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA5B86B4256D316C00FFEC14 /* gasstation.jpg */; };
 		FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86B8256D33C500FFEC14 /* DatePicker.swift */; };
+		FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86DF256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld */; };
 		FAD754EF25517BDA000CA1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */; };
 		FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */; };
 		FAD754F825517BDC000CA1C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD754F725517BDC000CA1C6 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		FA5B86B0256D271800FFEC14 /* GasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStation.swift; sourceTree = "<group>"; };
 		FA5B86B4256D316C00FFEC14 /* gasstation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gasstation.jpg; sourceTree = "<group>"; };
 		FA5B86B8256D33C500FFEC14 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		FA5B86E0256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataMyCar.xcdatamodel; sourceTree = "<group>"; };
 		FAD754EB25517BDA000CA1C6 /* MyCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				FAD754F925517BDC000CA1C6 /* LaunchScreen.storyboard */,
 				FA3F8BC125527EA7006F833A /* GoogleService-Info.plist */,
 				FAD754FC25517BDC000CA1C6 /* Info.plist */,
+				FA5B86DF256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld */,
 			);
 			path = MyCar;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				FA5B8699256D036500FFEC14 /* GasolineViewController.swift in Sources */,
 				FA3F8BB125527D27006F833A /* Utilities.swift in Sources */,
 				FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */,
+				FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */,
 				FA3F8BBD25527D60006F833A /* LoginViewController.swift in Sources */,
 				FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */,
 				FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */,
@@ -490,6 +494,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FA5B86DF256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FA5B86E0256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodel */,
+			);
+			currentVersion = FA5B86E0256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodel */;
+			path = CoreDataMyCar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FAD754E325517BDA000CA1C6 /* Project object */;
 }
