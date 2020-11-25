@@ -10,10 +10,17 @@ import UIKit
 
 class Person {
     var UUID: String
-    var username: String
+    var userName: String
     
-    init(UUID: String, username: String) {
-        self.UUID = UUID
-        self.username = username
+    static let instance = Person()
+    
+    private init() {
+        self.UUID = ""
+        self.userName = ""
+    }
+    
+    static func createWith(userName: String, UUID: String){
+        Person.instance.UUID = UUID
+        Person.instance.userName = userName
     }
 }

@@ -10,8 +10,6 @@ import UIKit
 
 class RootTabBarController: UITabBarController {
     
-    var userInfo: Person = Person(UUID: "", username: "")
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +21,6 @@ class RootTabBarController: UITabBarController {
         super.viewWillAppear(animated)
         
         let homeVC = HomeViewController()
-        homeVC.userInfo = self.userInfo
         let homeNavigationController = UINavigationController(rootViewController: homeVC)
         homeNavigationController.navigationBar.isHidden = true
         homeNavigationController.title = "Home page"
@@ -34,7 +31,6 @@ class RootTabBarController: UITabBarController {
         viewControllers = [homeNavigationController]
         
         let gasolineViewController = GasolineViewController()
-        gasolineViewController.userInfo = self.userInfo
         let gasolineNavgitaionController = UINavigationController(rootViewController: gasolineViewController)
         gasolineNavgitaionController.navigationBar.isHidden = true
         gasolineNavgitaionController.title = "Refueling"

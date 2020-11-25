@@ -11,8 +11,6 @@ import CoreData
 
 class HomeViewController: UIViewController {
     
-    var userInfo: Person = Person(UUID: "", username: "")
-    
     let imageView: UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +44,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print("\(userInfo.UUID), \(userInfo.username)")
+        print("\(Person.instance.UUID), \(Person.instance.userName)")
         retrieveDate()
     }
     

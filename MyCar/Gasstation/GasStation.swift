@@ -13,6 +13,7 @@ struct Refueling {
     var totalMileage: Double
     var fullTank: Bool
     var date: String
+    var price: Double
 }
 
 class GasStation {

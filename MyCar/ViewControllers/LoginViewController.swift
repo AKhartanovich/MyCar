@@ -143,9 +143,9 @@ class LoginViewController: UIViewController {
                 self.errorLable.text = error.localizedDescription
             } else {
                 guard let result = result else {return}
-                let person = Person(UUID: result.user.uid, username: email)
+//                let person = Person(UUID: result.user.uid, username: email)
+                let person = Person.createWith(userName: email, UUID: result.user.uid)
                 let HomeTBC = RootTabBarController.init()
-                HomeTBC.userInfo = person
                 HomeTBC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(HomeTBC, animated: true, completion: .none)
             }
