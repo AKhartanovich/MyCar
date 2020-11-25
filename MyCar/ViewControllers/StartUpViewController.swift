@@ -78,11 +78,10 @@ class StartUpViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        let realm = try! Realm()
 //        print(realm.configuration.fileURL?.absoluteString)
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        print(paths[0])
     }
     
     @objc func signUpButtonTap(_:UIButton){
+//        deleteData()
         self.navigationController?.pushViewController(SignUpViewController.init(), animated: true)
     }
     
@@ -116,4 +115,37 @@ class StartUpViewController: UIViewController {
         player?.playImmediately(atRate: 1)
         
     }
+    
+    func deleteData(){
+       
+       //As we know that container is set up in the AppDelegates so we need to refer that container.
+       guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+       
+       //We need to create a context from this container
+       let context = appDelegate.persistentContainer.viewContext
+       
+       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+       request.predicate = NSPredicate(format: "email = %@", "khartanovichao@gmail.com")
+      
+       do
+       {
+           let test = try context.fetch(request)
+           
+           let objectToDelete = test[0] as! NSManagedObject
+           context.delete(objectToDelete)
+           
+           do{
+               try context.save()
+           }
+           catch
+           {
+               print(error)
+           }
+           
+       }
+       catch
+       {
+           print(error)
+       }
+   }
 }

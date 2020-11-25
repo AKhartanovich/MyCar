@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Test" representedClassName="Test" syncable="YES" codeGenerationType="class">
-        <attribute name="test" optional="YES" attributeType="String"/>
+    <entity name="Users" representedClassName="Users" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="surname" optional="YES" attributeType="String"/>
+        <attribute name="uuid" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Test" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="Users" positionX="3793.8759765625" positionY="-2768.947784423828" width="143.723876953125" height="103"/>
     </elements>
 </model>

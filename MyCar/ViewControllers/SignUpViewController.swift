@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import CoreData
 
 class SignUpViewController: UIViewController {
     
@@ -27,6 +28,20 @@ class SignUpViewController: UIViewController {
         emailTextField.setPlaceHolderWith(color: .white, text: "Email:")
         emailTextField.translatesAutoresizingMaskIntoConstraints = false
         return emailTextField
+    }()
+    
+    let nameTextField: UITextField = {
+        let nameTextField = UITextField()
+        nameTextField.setPlaceHolderWith(color: .white, text: "Name:")
+        nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        return nameTextField
+    }()
+    
+    let surnameTextField: UITextField = {
+        let surnameTextField = UITextField()
+        surnameTextField.setPlaceHolderWith(color: .white, text: "Surname:")
+        surnameTextField.translatesAutoresizingMaskIntoConstraints = false
+        return surnameTextField
     }()
     
     let passwordTextField: UITextField = {
@@ -94,16 +109,38 @@ class SignUpViewController: UIViewController {
         emailTextField.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 10).isActive = true
         emailTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         emailTextField.autocapitalizationType = .none
+        emailTextField.text = "khartanovichao@gmail.com"
         emailTextField.textColor = .white
         createCustomTextField(emailTextField)
         
+        rootView.addSubview(nameTextField)
+        nameTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
+        nameTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
+        nameTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10).isActive = true
+        nameTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        nameTextField.autocapitalizationType = .none
+        nameTextField.text = "Alexander"
+        nameTextField.textColor = .white
+        createCustomTextField(nameTextField)
+        
+        rootView.addSubview(surnameTextField)
+        surnameTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
+        surnameTextField.trailingAnchor.constraint(equalTo: nameTextField.trailingAnchor).isActive = true
+        surnameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10).isActive = true
+        surnameTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        surnameTextField.autocapitalizationType = .none
+        surnameTextField.text = "Khartanovich"
+        surnameTextField.textColor = .white
+        createCustomTextField(surnameTextField)
+        
         rootView.addSubview(passwordTextField)
-        passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
-        passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor).isActive = true
-        passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10).isActive = true
+        passwordTextField.leadingAnchor.constraint(equalTo: surnameTextField.leadingAnchor).isActive = true
+        passwordTextField.trailingAnchor.constraint(equalTo: surnameTextField.trailingAnchor).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: surnameTextField.bottomAnchor, constant: 10).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         passwordTextField.autocapitalizationType = .none
         passwordTextField.textColor = .white
+        passwordTextField.text = "Qwerty123"
         passwordTextField.isSecureTextEntry = true
         createCustomTextField(passwordTextField)
         
@@ -114,6 +151,7 @@ class SignUpViewController: UIViewController {
         passwordRepeatTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         passwordRepeatTextField.autocapitalizationType = .none
         passwordRepeatTextField.textColor = .white
+        passwordRepeatTextField.text = "Qwerty123"
         passwordRepeatTextField.isSecureTextEntry = true
         createCustomTextField(passwordRepeatTextField)
         
@@ -146,7 +184,9 @@ class SignUpViewController: UIViewController {
     @objc func signUpButtonTap(_: UIButton){
         guard let email = emailTextField.text,
               let password = passwordTextField.text,
-              let repeatPassword = passwordRepeatTextField.text else {return}
+              let repeatPassword = passwordRepeatTextField.text,
+              let name = nameTextField.text,
+              let surname = surnameTextField.text else {return}
         guard !email.isEmpty else { errorLable.alpha = 1; errorLable.text = "Insert Email"; return}
         guard !password.isEmpty else {errorLable.alpha = 1; errorLable.text = "Insert Password" ; return}
         guard !repeatPassword.isEmpty else {errorLable.alpha = 1; errorLable.text = "Repeat Password"; return}
@@ -162,11 +202,33 @@ class SignUpViewController: UIViewController {
                 self.errorLable.alpha = 1
                 self.errorLable.text = "Error creating user"
             } else {
+                guard let result = result else {return}
+                self.createData(name: name, surname: surname, UUID: result.user.uid, email: email)
+                let person = Person(UUID: result.user.uid, username: email)
                 let HomeTBC = RootTabBarController.init()
+                HomeTBC.userInfo = person
                 HomeTBC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(HomeTBC, animated: true, completion: .none)
             }
             
+        }
+    }
+    
+    func createData(name: String, surname: String, UUID: String, email: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        //context
+        let context = appDelegate.persistentContainer.viewContext
+        //Entity
+        guard let entity = NSEntityDescription.entity(forEntityName: "Users", in: context) else {return}
+        let user = Users(entity: entity, insertInto: context)
+        user.email = email
+        user.name = name
+        user.surname = surname
+        user.uuid = UUID
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("\(error), \(error.userInfo)")
         }
     }
     

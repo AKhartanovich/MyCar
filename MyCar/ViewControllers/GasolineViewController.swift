@@ -10,6 +10,8 @@ import UIKit
 
 class GasolineViewController: UIViewController, UITextFieldDelegate {
     
+    var userInfo: Person = Person(UUID: "", username: "")
+    
     let imageView: UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

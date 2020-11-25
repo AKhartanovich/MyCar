@@ -142,15 +142,12 @@ class LoginViewController: UIViewController {
                 self.errorLable.alpha = 1
                 self.errorLable.text = error.localizedDescription
             } else {
+                guard let result = result else {return}
+                let person = Person(UUID: result.user.uid, username: email)
                 let HomeTBC = RootTabBarController.init()
+                HomeTBC.userInfo = person
                 HomeTBC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(HomeTBC, animated: true, completion: .none)
-//                let BaseNavigationController = UINavigationController()
-//                BaseNavigationController.pushViewController(HomeTBC, animated: true)
-//                BaseNavigationController.modalPresentationStyle = .fullScreen
-//                self.navigationController?.present(BaseNavigationController, animated: true, completion: .none)
-//                self.view.window?.rootViewController = HomeVC
-//                self.view.window?.makeKeyAndVisible()
             }
         }
     }

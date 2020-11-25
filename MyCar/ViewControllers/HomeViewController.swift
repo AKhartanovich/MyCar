@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController {
+    
+    var userInfo: Person = Person(UUID: "", username: "")
     
     let imageView: UIImageView = {
        let imageView = UIImageView()
@@ -42,8 +45,28 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        print("\(userInfo.UUID), \(userInfo.username)")
+        retrieveDate()
+    }
+    
+    func retrieveDate(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        //context
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                print(data.value(forKey: "name") as! String)
+                print(data.value(forKey: "surname") as! String)
+                print(data.value(forKey: "email") as! String)
+                print(data.value(forKey: "uuid") as! String)
+            }
+        } catch let error as NSError {
+            print(error)
+        }
     }
     
 
