@@ -7,6 +7,7 @@
 import Foundation
 import UIKit
 import AVKit
+import CoreData
 //import RealmSwift
 
 class StartUpViewController: UIViewController {
@@ -77,6 +78,8 @@ class StartUpViewController: UIViewController {
         // Do any additional setup after loading the view.
 //        let realm = try! Realm()
 //        print(realm.configuration.fileURL?.absoluteString)
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        print(paths[0])
     }
     
     @objc func signUpButtonTap(_:UIButton){

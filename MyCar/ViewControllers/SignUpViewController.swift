@@ -162,9 +162,9 @@ class SignUpViewController: UIViewController {
                 self.errorLable.alpha = 1
                 self.errorLable.text = "Error creating user"
             } else {
-                let VC = HomeViewController.init()
-                self.view.window?.rootViewController = VC
-                self.view.window?.makeKeyAndVisible()
+                let HomeTBC = RootTabBarController.init()
+                HomeTBC.modalPresentationStyle = .fullScreen
+                self.navigationController?.present(HomeTBC, animated: true, completion: .none)
             }
             
         }

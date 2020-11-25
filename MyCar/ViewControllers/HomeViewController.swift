@@ -1,12 +1,12 @@
 //
 //  HomeViewController.swift
-//  MyFavoriteCar
+//  MyCar
 //
-//  Created by Александр Хартанович on 25.10.20.
+//  Created by MacBook on 24.11.20.
+//  Copyright © 2020 khartanovichao. All rights reserved.
 //
 
 import UIKit
-//import RealmSwift
 
 class HomeViewController: UIViewController {
     
@@ -24,14 +24,6 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.rgb(red: 113, green: 134, blue: 255)]
-        self.title = "Hi"
         
         view.addSubview(imageView)
         imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -52,15 +44,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        
-        
-        
     }
     
-    @objc func insertButtonTap(_: UIButton){
-//        guard let fuel = fuelLitres.text else {return}
-    }
+
 
 
 }
