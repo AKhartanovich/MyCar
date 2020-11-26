@@ -137,14 +137,12 @@ class LoginViewController: UIViewController {
         
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
-//        deleteData()
         Auth.auth().signIn(withEmail: email, password: password) { [self] (result, error) in
             if let error = error {
                 self.errorLable.alpha = 1
                 self.errorLable.text = error.localizedDescription
             } else {
                 guard let result = result else {return}
-//                let person = Person(UUID: result.user.uid, username: email)
                 guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
                 //context
                 let context = appDelegate.persistentContainer.viewContext
@@ -157,7 +155,6 @@ class LoginViewController: UIViewController {
                         let name = data.value(forKey: "name") as! String
                         let surname = data.value(forKey: "surname") as! String
                         Person.createWith(userName: email, UUID: result.user.uid, name: name, surname: surname)
-//                        print("\(Person.instance.UUID), \(Person.instance.email), \(Person.instance.name), \(Person.instance.surname)")
                     }
                 } catch let error as NSError {
                     print(error)
@@ -183,37 +180,37 @@ class LoginViewController: UIViewController {
     }
     
     func deleteData(){
-       
-       //As we know that container is set up in the AppDelegates so we need to refer that container.
-       guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-       
-       //We need to create a context from this container
-       let context = appDelegate.persistentContainer.viewContext
-       
-       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
-       request.predicate = NSPredicate(format: "email = %@", "khartanovichao@gmail.com")
-      
-       do
+        
+        //As we know that container is set up in the AppDelegates so we need to refer that container.
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        //We need to create a context from this container
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+        request.predicate = NSPredicate(format: "email = %@", "khartanovichao@gmail.com")
+        
+        do
        {
-           let test = try context.fetch(request)
-           
-           let objectToDelete = test[0] as! NSManagedObject
-           context.delete(objectToDelete)
-           
-           do{
-               try context.save()
-           }
-           catch
-           {
-               print(error)
-           }
-           
+        let test = try context.fetch(request)
+        
+        let objectToDelete = test[0] as! NSManagedObject
+        context.delete(objectToDelete)
+        
+        do{
+            try context.save()
+        }
+        catch
+        {
+            print(error)
+        }
+        
        }
-       catch
-       {
-           print(error)
-       }
-   }
+        catch
+        {
+            print(error)
+        }
+    }
 
 
 }

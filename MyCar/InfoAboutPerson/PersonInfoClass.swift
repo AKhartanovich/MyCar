@@ -14,8 +14,6 @@ class Person {
     var name: String
     var surname: String
     
-    
-    
     static let instance = Person()
     
     private init() {

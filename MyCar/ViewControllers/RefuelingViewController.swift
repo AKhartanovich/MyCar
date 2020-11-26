@@ -175,7 +175,8 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
                 if vc is GasolineViewController {
                     vc.modalPresentationStyle = .fullScreen
                     vc.viewDidLoad()
-                    HomeViewController.init().viewDidLoad()
+                    HomeViewController.init().loadView()
+                    GasolineViewController.init().loadView()
                     _ = self.navigationController?.popToViewController(vc,animated: true)
                     return
                 }

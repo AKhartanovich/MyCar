@@ -131,6 +131,7 @@ class GasolineViewController: UIViewController {
         viewAverageConsumption.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
         viewAverageConsumption.trailingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: -10).isActive = true
         viewAverageConsumption.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        viewAverageConsumption.backgroundColor = myColor
         createCustomView(viewAverageConsumption)
         
         viewAverageConsumption.addSubview(labelaverageConsumption)
