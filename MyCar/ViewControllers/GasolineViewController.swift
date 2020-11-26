@@ -9,9 +9,10 @@
 import UIKit
 import CoreData
 
-class GasolineViewController: UIViewController, UITextFieldDelegate {
+class GasolineViewController: UIViewController {
     
     let myColor = UIColor.rgb(red: 113, green: 134, blue: 255)
+    var dataCalc: (Double,Double,Double,Int) = (0,0,0,0)
     
     let imageView: UIImageView = {
        let imageView = UIImageView()
@@ -32,44 +33,61 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
         return rootView
     }()
     
-    let countOfLitresTextField: UITextField = {
-        let countOfLitresTextField = UITextField()
-        countOfLitresTextField.setPlaceHolderWith(color: .rgb(red: 211, green: 211, blue: 211), text: "Count of fuel:")
-        countOfLitresTextField.translatesAutoresizingMaskIntoConstraints = false
-        return countOfLitresTextField
+    let labelaverageConsumption: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 4
+        label.textColor = .white
+        return label
     }()
     
-    let totalMileageTextField: UITextField = {
-        let totalMileage = UITextField()
-        totalMileage.setPlaceHolderWith(color: .rgb(red: 211, green: 211, blue: 211), text: "Total mileage:")
-        totalMileage.translatesAutoresizingMaskIntoConstraints = false
-        return totalMileage
+    let viewAverageConsumption: UIView = {
+       let rootView = UIView()
+        rootView.translatesAutoresizingMaskIntoConstraints = false
+        return rootView
     }()
     
-    let priceTextField: UITextField = {
-        let priceTextField = UITextField()
-        priceTextField.setPlaceHolderWith(color: .rgb(red: 211, green: 211, blue: 211), text: "Price:")
-        priceTextField.translatesAutoresizingMaskIntoConstraints = false
-        return priceTextField
+    let labelPrice: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 4
+        label.textColor = .white
+        return label
     }()
     
-    let fullTankSwitch: UISwitch = {
-        let fullTank = UISwitch()
-        fullTank.translatesAutoresizingMaskIntoConstraints = false
-        return fullTank
+    let viewPrice: UIView = {
+       let rootView = UIView()
+        rootView.translatesAutoresizingMaskIntoConstraints = false
+        return rootView
     }()
     
-    let fulTankLable: UILabel = {
-        let fullTank = UILabel()
-        fullTank.translatesAutoresizingMaskIntoConstraints = false
-        return fullTank
+    let labelMileage: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 4
+        label.textColor = .white
+        return label
     }()
     
-//    let dateTextField: DatePickerTextField = {
-//        let dateTextField = DatePickerTextField()
-//        dateTextField.translatesAutoresizingMaskIntoConstraints = false
-//        return dateTextField
-//    }()
+    let viewMileage: UIView = {
+       let rootView = UIView()
+        rootView.translatesAutoresizingMaskIntoConstraints = false
+        return rootView
+    }()
+    
+    let labelCountRefueling: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 4
+        label.textColor = .white
+        return label
+    }()
+    
+    let viewCountRefueling: UIView = {
+       let rootView = UIView()
+        rootView.translatesAutoresizingMaskIntoConstraints = false
+        return rootView
+    }()
     
     let refuelingButton: UIButton = {
         let refueling = UIButton()
@@ -84,6 +102,7 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
     
     override func loadView() {
         super.loadView()
+        dataCalc = calculateAverageConsumption()
         
         view.addSubview(imageView)
         imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -99,6 +118,7 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
         labelInfo.text = "Refueling"
         labelInfo.font = UIFont.systemFont(ofSize: 20.0)
         labelInfo.textAlignment = .center
+        labelInfo.heightAnchor.constraint(equalToConstant: 25).isActive = true
         
         view.addSubview(rootView)
         rootView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
@@ -106,130 +126,85 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
         rootView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         rootView.heightAnchor.constraint(equalToConstant: 500).isActive = true
         
-        rootView.addSubview(countOfLitresTextField)
-        countOfLitresTextField.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 10).isActive = true
-        countOfLitresTextField.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
-        countOfLitresTextField.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
-        countOfLitresTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        countOfLitresTextField.textColor = .white
-        createCustomTextField(countOfLitresTextField)
+        rootView.addSubview(viewAverageConsumption)
+        viewAverageConsumption.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 10).isActive = true
+        viewAverageConsumption.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
+        viewAverageConsumption.trailingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: -10).isActive = true
+        viewAverageConsumption.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        createCustomView(viewAverageConsumption)
         
-        rootView.addSubview(totalMileageTextField)
-        totalMileageTextField.topAnchor.constraint(equalTo: countOfLitresTextField.bottomAnchor, constant: 20).isActive = true
-        totalMileageTextField.leadingAnchor.constraint(equalTo: countOfLitresTextField.leadingAnchor).isActive = true
-        totalMileageTextField.trailingAnchor.constraint(equalTo: countOfLitresTextField.trailingAnchor).isActive = true
-        totalMileageTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        totalMileageTextField.textColor = .white
-        createCustomTextField(totalMileageTextField)
+        viewAverageConsumption.addSubview(labelaverageConsumption)
+        labelaverageConsumption.centerXAnchor.constraint(equalTo: viewAverageConsumption.centerXAnchor).isActive = true
+        labelaverageConsumption.centerYAnchor.constraint(equalTo: viewAverageConsumption.centerYAnchor).isActive = true
+        labelaverageConsumption.leadingAnchor.constraint(equalTo: viewAverageConsumption.leadingAnchor, constant: 5).isActive = true
+        labelaverageConsumption.trailingAnchor.constraint(equalTo: viewAverageConsumption.trailingAnchor, constant: -5).isActive = true
+        labelaverageConsumption.textAlignment = .left
+        labelaverageConsumption.text = "Средний расход: " + String(Double(round(10*dataCalc.0)/10)) + " л/100км"
         
-        rootView.addSubview(priceTextField)
-        priceTextField.topAnchor.constraint(equalTo: totalMileageTextField.bottomAnchor, constant: 20).isActive = true
-        priceTextField.leadingAnchor.constraint(equalTo: totalMileageTextField.leadingAnchor).isActive = true
-        priceTextField.trailingAnchor.constraint(equalTo: totalMileageTextField.trailingAnchor).isActive = true
-        priceTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        priceTextField.textColor = .white
-        createCustomTextField(priceTextField)
+        rootView.addSubview(viewPrice)
+        viewPrice.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 10).isActive = true
+        viewPrice.leadingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: 10).isActive = true
+        viewPrice.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
+        viewPrice.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        createCustomView(viewPrice)
         
-        rootView.addSubview(fullTankSwitch)
-        fullTankSwitch.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 20).isActive = true
-        fullTankSwitch.leadingAnchor.constraint(equalTo: priceTextField.leadingAnchor).isActive = true
-        fullTankSwitch.onTintColor = UIColor.rgb(red: 113, green: 134, blue: 255)
-        fullTankSwitch.addTarget(self, action: #selector(switchStateDidChange(_:)), for: .valueChanged)
+        viewAverageConsumption.addSubview(labelPrice)
+        labelPrice.centerXAnchor.constraint(equalTo: viewPrice.centerXAnchor).isActive = true
+        labelPrice.centerYAnchor.constraint(equalTo: viewPrice.centerYAnchor).isActive = true
+        labelPrice.leadingAnchor.constraint(equalTo: viewPrice.leadingAnchor, constant: 5).isActive = true
+        labelPrice.trailingAnchor.constraint(equalTo: viewPrice.trailingAnchor, constant: -5).isActive = true
+        labelPrice.textAlignment = .left
+        labelPrice.text = "Потрачено денег на топливо: " + String(dataCalc.1) + " BYN"
         
-        rootView.addSubview(fulTankLable)
-        fulTankLable.topAnchor.constraint(equalTo: fullTankSwitch.topAnchor).isActive = true
-        fulTankLable.leadingAnchor.constraint(equalTo: fullTankSwitch.trailingAnchor, constant: 20).isActive = true
-        fulTankLable.text = "Full tank?"
-        fulTankLable.textColor = .white
-        fulTankLable.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
+        rootView.addSubview(viewMileage)
+        viewMileage.topAnchor.constraint(equalTo: viewPrice.bottomAnchor, constant: 10).isActive = true
+        viewMileage.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
+        viewMileage.trailingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: -10).isActive = true
+        viewMileage.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        createCustomView(viewMileage)
         
-//        rootView.addSubview(dateTextField)
-//        dateTextField.topAnchor.constraint(equalTo: fullTankSwitch.bottomAnchor, constant: 20).isActive = true
-//        dateTextField.leadingAnchor.constraint(equalTo: fullTankSwitch.leadingAnchor).isActive = true
-//        dateTextField.trailingAnchor.constraint(equalTo: totalMileageTextField.trailingAnchor).isActive = true
-//        dateTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        dateTextField.textColor = .white
-//        dateTextField.setPlaceHolderWith(color: .white, text: "Refueling date")
-//        createCustomTextField(dateTextField)
+        viewAverageConsumption.addSubview(labelMileage)
+        labelMileage.centerXAnchor.constraint(equalTo: viewMileage.centerXAnchor).isActive = true
+        labelMileage.centerYAnchor.constraint(equalTo: viewMileage.centerYAnchor).isActive = true
+        labelMileage.leadingAnchor.constraint(equalTo: viewMileage.leadingAnchor, constant: 5).isActive = true
+        labelMileage.trailingAnchor.constraint(equalTo: viewMileage.trailingAnchor, constant: -5).isActive = true
+        labelMileage.textAlignment = .left
+        labelMileage.text = "Общий пробег : " + String(dataCalc.2) + " Km"
+        
+        rootView.addSubview(viewCountRefueling)
+        viewCountRefueling.topAnchor.constraint(equalTo: viewPrice.bottomAnchor, constant: 10).isActive = true
+        viewCountRefueling.leadingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: 10).isActive = true
+        viewCountRefueling.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
+        viewCountRefueling.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        createCustomView(viewCountRefueling)
+        
+        viewAverageConsumption.addSubview(labelCountRefueling)
+        labelCountRefueling.centerXAnchor.constraint(equalTo: viewCountRefueling.centerXAnchor).isActive = true
+        labelCountRefueling.centerYAnchor.constraint(equalTo: viewCountRefueling.centerYAnchor).isActive = true
+        labelCountRefueling.leadingAnchor.constraint(equalTo: viewCountRefueling.leadingAnchor, constant: 5).isActive = true
+        labelCountRefueling.trailingAnchor.constraint(equalTo: viewCountRefueling.trailingAnchor, constant: -5).isActive = true
+        labelCountRefueling.textAlignment = .center
+        labelCountRefueling.text = "Всего заправок: " + String(dataCalc.3)
         
         rootView.addSubview(refuelingButton)
-        refuelingButton.leadingAnchor.constraint(equalTo: priceTextField.leadingAnchor).isActive = true
-        refuelingButton.trailingAnchor.constraint(equalTo: priceTextField.trailingAnchor).isActive = true
+        refuelingButton.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
+        refuelingButton.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
         refuelingButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        refuelingButton.topAnchor.constraint(equalTo: fulTankLable.bottomAnchor, constant: 20).isActive = true
+        refuelingButton.topAnchor.constraint(equalTo: viewMileage.bottomAnchor, constant: 20).isActive = true
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        countOfLitresTextField.delegate = self
-        totalMileageTextField.delegate = self
         // Do any additional setup after loading the view.
+        
     }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //For numers
-        if textField == countOfLitresTextField || textField == totalMileageTextField {
-            let allowedCharacters = CharacterSet(charactersIn:"0123456789")//Here change this characters based on your requirement
-            let characterSet = CharacterSet(charactersIn: string)
-            return allowedCharacters.isSuperset(of: characterSet)
-        }
-        return true
-    }
-    
-    var switchBool: Bool = false
     
     @objc
     func refuelingButtonTap(_: UIButton){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        //context
-        let context = appDelegate.persistentContainer.viewContext
-        //Entity
-        guard let entityUsers = NSEntityDescription.entity(forEntityName: "Users", in: context) else {return}
-        guard let entityRefueling = NSEntityDescription.entity(forEntityName: "Refueling", in: context) else {return}
-        
-        guard let countOfLitres = countOfLitresTextField.text else {return}
-        guard let totalMileage = totalMileageTextField.text else {return}
-//        guard let date = dateTextField.text else {return}
-        guard let price = priceTextField.text else {return}
-        
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy/MM/dd"
-//        let someDateTime = formatter.date(from: date)
-        guard let countOfLitresDouble = Double(countOfLitres) else {return}
-        guard let totalMileageDouble = Double(totalMileage) else {return}
-        guard let priceDouble = Double(price) else {return}
-        
-        let person = Users(entity: entityUsers, insertInto: context)
-        person.email = Person.instance.email
-        person.name = Person.instance.name
-        person.surname = Person.instance.surname
-        person.uuid = Person.instance.UUID
-        
-        let refueling = Refueling(entity: entityRefueling, insertInto: context)
-        refueling.fullTank = switchBool
-        refueling.literes = countOfLitresDouble
-        refueling.totalMileage = totalMileageDouble
-        refueling.price = priceDouble
-        refueling.users = person
-        
-        do {
-            try context.save()
-        } catch let error as NSError {
-            print("\(error), \(error.userInfo)")
-        }
-        countOfLitresTextField.text = ""
-        totalMileageTextField.text = ""
-        priceTextField.text = ""
+        let refuelingVC = RefuelingViewController.init()
+        self.navigationController?.pushViewController(refuelingVC, animated: true)
     }
     
-    @objc func switchStateDidChange(_ sender:UISwitch){
-        if (sender.isOn == true){
-            switchBool = true
-        }
-        else{
-            switchBool = false
-        }
-    }
 
 
 }

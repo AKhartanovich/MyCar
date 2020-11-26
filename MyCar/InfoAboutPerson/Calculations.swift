@@ -41,23 +41,22 @@ func calculateAverageConsumption() -> (Double,Double,Double,Int) {
                 guard let totalKM = totalMileage else {return (0,0,0,0)}
                 myRefueling = DataRefuling(fullTank: fulltank, literes: litr, price: pr, totalMileage: totalKM)
                 refuelingArray.append(myRefueling)
-                
                 //                print(data.value(forKey: "literes") as! Double)
-                for item in refuelingArray {
-                    countRecordInBase += 1
-                    print("Full tank? \(item.fullTank)")
-                    print("\(item.literes) litres")
-                    print("\(item.price) BYN")
-                    print("\(item.totalMileage) KM")
-                }
+//                for item in refuelingArray {
+//                    countRecordInBase += 1
+//                    print("Full tank? \(item.fullTank)")
+//                    print("\(item.literes) litres")
+//                    print("\(item.price) BYN")
+//                    print("\(item.totalMileage) KM")
+//                }
             }
-            //            print(result.count)
         }
     } catch { }
     
     var literes: Double = 0
     var price: Double = 0
     var totalMileage: Double = 0
+    var Mileage: Double = refuelingArray.last!.totalMileage
     let startMileage: Double = refuelingArray[0].totalMileage
     let countRefueling = refuelingArray.count
     
@@ -82,5 +81,5 @@ func calculateAverageConsumption() -> (Double,Double,Double,Int) {
     let averageConsumption: Double = 100 * literes / totalMileage
     
     
-    return (averageConsumption,price,totalMileage, countRefueling)
+    return (averageConsumption,price,Mileage, countRefueling)
 }

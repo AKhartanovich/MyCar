@@ -69,33 +69,28 @@ class HomeViewController: UIViewController {
         labal1.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: 10).isActive = true
         labal1.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -10).isActive = true
         labal1.textAlignment = .left
-        labal1.text = "Средний расход: " + String(Double(round(10*dataCalc.0)/10))
+        labal1.text = "Средний расход: " + String(Double(round(10*dataCalc.0)/10)) + " л/100км"
         
         rootView.addSubview(labal2)
         labal2.topAnchor.constraint(equalTo: labal1.bottomAnchor, constant: 20).isActive = true
         labal2.leadingAnchor.constraint(equalTo: labal1.leadingAnchor).isActive = true
         labal2.trailingAnchor.constraint(equalTo: labal1.trailingAnchor, constant: -10).isActive = true
         labal2.textAlignment = .left
-        labal2.text = "Потрачено денег на топливо: " + String(dataCalc.1)
+        labal2.text = "Потрачено денег на топливо: " + String(dataCalc.1) + " BYN"
         
         rootView.addSubview(labal3)
         labal3.topAnchor.constraint(equalTo: labal2.bottomAnchor, constant: 20).isActive = true
         labal3.leadingAnchor.constraint(equalTo: labal2.leadingAnchor).isActive = true
         labal3.trailingAnchor.constraint(equalTo: labal2.trailingAnchor, constant: -10).isActive = true
         labal3.textAlignment = .left
-//        labal3.heightAnchor.constraint(equalToConstant: 50).isActive = true
         labal3.text = "Общий пробег : " + String(dataCalc.2) + " Km"
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        print("\(Person.instance.UUID), \(Person.instance.email)")
-//        retrieveDate()
-//        getFuelingWithEmployee(username: "Khartanovich")
-//        print(calculateAverageConsumption())
-        
     }
+    
+    
     
     func retrieveDate(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}

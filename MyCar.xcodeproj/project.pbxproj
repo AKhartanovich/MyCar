@@ -25,6 +25,8 @@
 		FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86B8256D33C500FFEC14 /* DatePicker.swift */; };
 		FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86DF256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld */; };
 		FA5FE1EF256F812E00DF1373 /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FE1EE256F812E00DF1373 /* Calculations.swift */; };
+		FA5FE1F2256FD81200DF1373 /* RefuelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FE1F1256FD81200DF1373 /* RefuelingViewController.swift */; };
+		FA5FE1F5256FD89D00DF1373 /* Gas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA5FE1F4256FD89D00DF1373 /* Gas.jpg */; };
 		FA6DF3B2256E7B420007A9AC /* PersonInfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */; };
 		FAD754EF25517BDA000CA1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */; };
 		FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */; };
@@ -55,6 +57,8 @@
 		FA5FE1E6256EE13500DF1373 /* Refueling+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refueling+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		FA5FE1E7256EE13500DF1373 /* Refueling+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refueling+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FA5FE1EE256F812E00DF1373 /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
+		FA5FE1F1256FD81200DF1373 /* RefuelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelingViewController.swift; sourceTree = "<group>"; };
+		FA5FE1F4256FD89D00DF1373 /* Gas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Gas.jpg; sourceTree = "<group>"; };
 		FA6DF3AA256E79D00007A9AC /* Users+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		FA6DF3AB256E79D00007A9AC /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoClass.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		FA3F8BAF25527D01006F833A /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				FA5FE1F4256FD89D00DF1373 /* Gas.jpg */,
 				FA5B86B4256D316C00FFEC14 /* gasstation.jpg */,
 				FA5B86A5256D1F0200FFEC14 /* fuelIcon.png */,
 				FA5B86A6256D1F0200FFEC14 /* homeIcon.png */,
@@ -126,6 +131,7 @@
 				FA3F8BBB25527D60006F833A /* StartUpViewController.swift */,
 				FA5B868E256CFEBD00FFEC14 /* HomeViewController.swift */,
 				FA5B8698256D036500FFEC14 /* GasolineViewController.swift */,
+				FA5FE1F1256FD81200DF1373 /* RefuelingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 				FA3F8BB525527D3A006F833A /* home.jpg in Resources */,
 				FA3F8BB625527D3A006F833A /* loginWalper.jpg in Resources */,
 				FA5B86A8256D1F0200FFEC14 /* homeIcon.png in Resources */,
+				FA5FE1F5256FD89D00DF1373 /* Gas.jpg in Resources */,
 				FA3F8BB725527D3A006F833A /* Preview.mp4 in Resources */,
 				FA5B86A7256D1F0200FFEC14 /* fuelIcon.png in Resources */,
 				FAD754FB25517BDC000CA1C6 /* LaunchScreen.storyboard in Resources */,
@@ -316,6 +323,7 @@
 				FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */,
 				FA3F8BBD25527D60006F833A /* LoginViewController.swift in Sources */,
 				FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */,
+				FA5FE1F2256FD81200DF1373 /* RefuelingViewController.swift in Sources */,
 				FA5FE1EF256F812E00DF1373 /* Calculations.swift in Sources */,
 				FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */,
 				FA3F8BBF25527D60006F833A /* StartUpViewController.swift in Sources */,
