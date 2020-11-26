@@ -18,9 +18,27 @@ extension Users {
     }
 
     @NSManaged public var email: String?
-    @NSManaged public var uuid: String?
     @NSManaged public var name: String?
     @NSManaged public var surname: String?
+    @NSManaged public var uuid: String?
+    @NSManaged public var refueling: NSSet?
+
+}
+
+// MARK: Generated accessors for refueling
+extension Users {
+
+    @objc(addRefuelingObject:)
+    @NSManaged public func addToRefueling(_ value: Refueling)
+
+    @objc(removeRefuelingObject:)
+    @NSManaged public func removeFromRefueling(_ value: Refueling)
+
+    @objc(addRefueling:)
+    @NSManaged public func addToRefueling(_ values: NSSet)
+
+    @objc(removeRefueling:)
+    @NSManaged public func removeFromRefueling(_ values: NSSet)
 
 }
 

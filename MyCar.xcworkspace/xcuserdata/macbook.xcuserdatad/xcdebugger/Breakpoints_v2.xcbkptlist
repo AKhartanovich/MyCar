@@ -23,17 +23,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "78FF0F38-3CC0-4CF6-AC3D-A13FF8F86124"
-            shouldBeEnabled = "Yes"
+            uuid = "79382839-C583-49F0-BEAE-E51863B907B8"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyCar/ViewControllers/GasolineViewController.swift"
+            filePath = "MyCar/InfoAboutPerson/Calculations.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "refuelingButtonTap(_:)"
-            landmarkType = "7">
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "calculateAverageConsumption()"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

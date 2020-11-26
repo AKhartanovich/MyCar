@@ -205,7 +205,8 @@ class SignUpViewController: UIViewController {
                 guard let result = result else {return}
                 self.createData(name: name, surname: surname, UUID: result.user.uid, email: email)
 //                let person = Person(UUID: result.user.uid, username: email)
-                let person = Person.createWith(userName: email, UUID: result.user.uid)
+                Person.createWith(userName: email, UUID: result.user.uid, name: name, surname: surname)
+                print("\(Person.instance.UUID), \(Person.instance.email), \(Person.instance.name), \(Person.instance.surname)")
                 let HomeTBC = RootTabBarController.init()
                 HomeTBC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(HomeTBC, animated: true, completion: .none)

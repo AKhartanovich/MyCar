@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import CoreData
 
 class GasolineViewController: UIViewController, UITextFieldDelegate {
     
+    let myColor = UIColor.rgb(red: 113, green: 134, blue: 255)
     
     let imageView: UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
+    }()
+    
+    let labelInfo: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 4
+        return label
     }()
     
     let rootView: UIView = {
@@ -37,6 +46,13 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
         return totalMileage
     }()
     
+    let priceTextField: UITextField = {
+        let priceTextField = UITextField()
+        priceTextField.setPlaceHolderWith(color: .rgb(red: 211, green: 211, blue: 211), text: "Price:")
+        priceTextField.translatesAutoresizingMaskIntoConstraints = false
+        return priceTextField
+    }()
+    
     let fullTankSwitch: UISwitch = {
         let fullTank = UISwitch()
         fullTank.translatesAutoresizingMaskIntoConstraints = false
@@ -49,11 +65,11 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
         return fullTank
     }()
     
-    let dateTextField: DatePickerTextField = {
-        let dateTextField = DatePickerTextField()
-        dateTextField.translatesAutoresizingMaskIntoConstraints = false
-        return dateTextField
-    }()
+//    let dateTextField: DatePickerTextField = {
+//        let dateTextField = DatePickerTextField()
+//        dateTextField.translatesAutoresizingMaskIntoConstraints = false
+//        return dateTextField
+//    }()
     
     let refuelingButton: UIButton = {
         let refueling = UIButton()
@@ -76,8 +92,16 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
         imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         imageView.image = UIImage(named: "gasstation.jpg")
         
+        view.addSubview(labelInfo)
+        labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        labelInfo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        labelInfo.textColor = .rgb(red: 211, green: 211, blue: 211)
+        labelInfo.text = "Refueling"
+        labelInfo.font = UIFont.systemFont(ofSize: 20.0)
+        labelInfo.textAlignment = .center
+        
         view.addSubview(rootView)
-        rootView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        rootView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
         rootView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         rootView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         rootView.heightAnchor.constraint(equalToConstant: 500).isActive = true
@@ -98,9 +122,17 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
         totalMileageTextField.textColor = .white
         createCustomTextField(totalMileageTextField)
         
+        rootView.addSubview(priceTextField)
+        priceTextField.topAnchor.constraint(equalTo: totalMileageTextField.bottomAnchor, constant: 20).isActive = true
+        priceTextField.leadingAnchor.constraint(equalTo: totalMileageTextField.leadingAnchor).isActive = true
+        priceTextField.trailingAnchor.constraint(equalTo: totalMileageTextField.trailingAnchor).isActive = true
+        priceTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        priceTextField.textColor = .white
+        createCustomTextField(priceTextField)
+        
         rootView.addSubview(fullTankSwitch)
-        fullTankSwitch.topAnchor.constraint(equalTo: totalMileageTextField.bottomAnchor, constant: 20).isActive = true
-        fullTankSwitch.leadingAnchor.constraint(equalTo: totalMileageTextField.leadingAnchor).isActive = true
+        fullTankSwitch.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 20).isActive = true
+        fullTankSwitch.leadingAnchor.constraint(equalTo: priceTextField.leadingAnchor).isActive = true
         fullTankSwitch.onTintColor = UIColor.rgb(red: 113, green: 134, blue: 255)
         fullTankSwitch.addTarget(self, action: #selector(switchStateDidChange(_:)), for: .valueChanged)
         
@@ -111,20 +143,20 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
         fulTankLable.textColor = .white
         fulTankLable.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
         
-        rootView.addSubview(dateTextField)
-        dateTextField.topAnchor.constraint(equalTo: fullTankSwitch.bottomAnchor, constant: 20).isActive = true
-        dateTextField.leadingAnchor.constraint(equalTo: fullTankSwitch.leadingAnchor).isActive = true
-        dateTextField.trailingAnchor.constraint(equalTo: totalMileageTextField.trailingAnchor).isActive = true
-        dateTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        dateTextField.textColor = .white
-        dateTextField.setPlaceHolderWith(color: .white, text: "Refueling date")
-        createCustomTextField(dateTextField)
+//        rootView.addSubview(dateTextField)
+//        dateTextField.topAnchor.constraint(equalTo: fullTankSwitch.bottomAnchor, constant: 20).isActive = true
+//        dateTextField.leadingAnchor.constraint(equalTo: fullTankSwitch.leadingAnchor).isActive = true
+//        dateTextField.trailingAnchor.constraint(equalTo: totalMileageTextField.trailingAnchor).isActive = true
+//        dateTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        dateTextField.textColor = .white
+//        dateTextField.setPlaceHolderWith(color: .white, text: "Refueling date")
+//        createCustomTextField(dateTextField)
         
         rootView.addSubview(refuelingButton)
-        refuelingButton.leadingAnchor.constraint(equalTo: dateTextField.leadingAnchor).isActive = true
-        refuelingButton.trailingAnchor.constraint(equalTo: dateTextField.trailingAnchor).isActive = true
+        refuelingButton.leadingAnchor.constraint(equalTo: priceTextField.leadingAnchor).isActive = true
+        refuelingButton.trailingAnchor.constraint(equalTo: priceTextField.trailingAnchor).isActive = true
         refuelingButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        refuelingButton.topAnchor.constraint(equalTo: dateTextField.bottomAnchor, constant: 20).isActive = true
+        refuelingButton.topAnchor.constraint(equalTo: fulTankLable.bottomAnchor, constant: 20).isActive = true
     }
 
     override func viewDidLoad() {
@@ -148,26 +180,54 @@ class GasolineViewController: UIViewController, UITextFieldDelegate {
     
     @objc
     func refuelingButtonTap(_: UIButton){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+        //context
+        let context = appDelegate.persistentContainer.viewContext
+        //Entity
+        guard let entityUsers = NSEntityDescription.entity(forEntityName: "Users", in: context) else {return}
+        guard let entityRefueling = NSEntityDescription.entity(forEntityName: "Refueling", in: context) else {return}
+        
         guard let countOfLitres = countOfLitresTextField.text else {return}
         guard let totalMileage = totalMileageTextField.text else {return}
-        guard let date = dateTextField.text else {return}
+//        guard let date = dateTextField.text else {return}
+        guard let price = priceTextField.text else {return}
         
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy/MM/dd"
+//        let someDateTime = formatter.date(from: date)
         guard let countOfLitresDouble = Double(countOfLitres) else {return}
         guard let totalMileageDouble = Double(totalMileage) else {return}
+        guard let priceDouble = Double(price) else {return}
         
-        let myRefueling = Refueling(countOfLitres: countOfLitresDouble, totalMileage: totalMileageDouble, fullTank: switchBool, date: date)
+        let person = Users(entity: entityUsers, insertInto: context)
+        person.email = Person.instance.email
+        person.name = Person.instance.name
+        person.surname = Person.instance.surname
+        person.uuid = Person.instance.UUID
         
-        let myGasStation = GasStation(refueling: myRefueling)
+        let refueling = Refueling(entity: entityRefueling, insertInto: context)
+        refueling.fullTank = switchBool
+        refueling.literes = countOfLitresDouble
+        refueling.totalMileage = totalMileageDouble
+        refueling.price = priceDouble
+        refueling.users = person
         
-        fulTankLable.text = String(myGasStation.countOfRefueling())
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("\(error), \(error.userInfo)")
+        }
+        countOfLitresTextField.text = ""
+        totalMileageTextField.text = ""
+        priceTextField.text = ""
     }
     
     @objc func switchStateDidChange(_ sender:UISwitch){
         if (sender.isOn == true){
-            switchBool = false
+            switchBool = true
         }
         else{
-            switchBool = true
+            switchBool = false
         }
     }
 

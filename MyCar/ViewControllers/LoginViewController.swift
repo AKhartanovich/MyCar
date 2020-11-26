@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import CoreData
 
 class LoginViewController: UIViewController {
     
@@ -136,15 +137,31 @@ class LoginViewController: UIViewController {
         
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
-        
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+//        deleteData()
+        Auth.auth().signIn(withEmail: email, password: password) { [self] (result, error) in
             if let error = error {
                 self.errorLable.alpha = 1
                 self.errorLable.text = error.localizedDescription
             } else {
                 guard let result = result else {return}
 //                let person = Person(UUID: result.user.uid, username: email)
-                let person = Person.createWith(userName: email, UUID: result.user.uid)
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+                //context
+                let context = appDelegate.persistentContainer.viewContext
+                
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+                request.predicate = NSPredicate(format: "ANY email = %@", email)
+                do {
+                    let res = try context.fetch(request)
+                    for data in res as! [NSManagedObject] {
+                        let name = data.value(forKey: "name") as! String
+                        let surname = data.value(forKey: "surname") as! String
+                        Person.createWith(userName: email, UUID: result.user.uid, name: name, surname: surname)
+//                        print("\(Person.instance.UUID), \(Person.instance.email), \(Person.instance.name), \(Person.instance.surname)")
+                    }
+                } catch let error as NSError {
+                    print(error)
+                }
                 let HomeTBC = RootTabBarController.init()
                 HomeTBC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(HomeTBC, animated: true, completion: .none)
@@ -164,6 +181,39 @@ class LoginViewController: UIViewController {
             self.navigationController?.pushViewController(SignUpViewController.init(), animated: true)
         }
     }
+    
+    func deleteData(){
+       
+       //As we know that container is set up in the AppDelegates so we need to refer that container.
+       guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+       
+       //We need to create a context from this container
+       let context = appDelegate.persistentContainer.viewContext
+       
+       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+       request.predicate = NSPredicate(format: "email = %@", "khartanovichao@gmail.com")
+      
+       do
+       {
+           let test = try context.fetch(request)
+           
+           let objectToDelete = test[0] as! NSManagedObject
+           context.delete(objectToDelete)
+           
+           do{
+               try context.save()
+           }
+           catch
+           {
+               print(error)
+           }
+           
+       }
+       catch
+       {
+           print(error)
+       }
+   }
 
 
 }

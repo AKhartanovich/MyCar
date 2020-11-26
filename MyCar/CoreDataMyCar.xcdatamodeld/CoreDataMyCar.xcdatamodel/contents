@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Refueling" representedClassName="Refueling" syncable="YES" codeGenerationType="class">
+        <attribute name="fullTank" optional="YES" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="literes" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalMileage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="refueling" inverseEntity="Users"/>
+    </entity>
     <entity name="Users" representedClassName="Users" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="surname" optional="YES" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="String"/>
+        <relationship name="refueling" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Refueling" inverseName="users" inverseEntity="Refueling"/>
     </entity>
     <elements>
-        <element name="Users" positionX="3793.8759765625" positionY="-2768.947784423828" width="143.723876953125" height="103"/>
+        <element name="Refueling" positionX="3760.049438476562" positionY="-2684.124450683594" width="128" height="118"/>
+        <element name="Users" positionX="3529.165100097656" positionY="-2724.465759277344" width="143.723876953125" height="118"/>
     </elements>
 </model>
