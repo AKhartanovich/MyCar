@@ -8,17 +8,12 @@
 import UIKit
 //import RealmSwift
 
+
+///Таббарконтроллер в который содержит массив навигейшнконтроллеров
 class RootTabBarController: UITabBarController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func loadView() {
+        super.loadView()
         
         let homeVC = HomeViewController()
         let homeNavigationController = UINavigationController(rootViewController: homeVC)
@@ -38,8 +33,17 @@ class RootTabBarController: UITabBarController {
         var array = self.viewControllers
         array?.append(gasolineNavgitaionController)
         self.viewControllers = array
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
         
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }

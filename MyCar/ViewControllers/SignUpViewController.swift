@@ -197,39 +197,22 @@ class SignUpViewController: UIViewController {
             passwordRepeatTextField.text = ""
             return
         }
+        //создание пользователя в Google Firebase
         Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
             if err != nil {
                 self.errorLable.alpha = 1
                 self.errorLable.text = "Error creating user"
             } else {
                 guard let result = result else {return}
-                self.createData(name: name, surname: surname, UUID: result.user.uid, email: email)
-//                let person = Person(UUID: result.user.uid, username: email)
+                //создание пользователя в таблице
+                createData(name: name, surname: surname, UUID: result.user.uid, email: email)
                 Person.createWith(userName: email, UUID: result.user.uid, name: name, surname: surname)
-                print("\(Person.instance.UUID), \(Person.instance.email), \(Person.instance.name), \(Person.instance.surname)")
+//                print("\(Person.instance.UUID), \(Person.instance.email), \(Person.instance.name), \(Person.instance.surname)")
                 let HomeTBC = RootTabBarController.init()
                 HomeTBC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(HomeTBC, animated: true, completion: .none)
             }
             
-        }
-    }
-    
-    func createData(name: String, surname: String, UUID: String, email: String) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        //context
-        let context = appDelegate.persistentContainer.viewContext
-        //Entity
-        guard let entity = NSEntityDescription.entity(forEntityName: "Users", in: context) else {return}
-        let user = Users(entity: entity, insertInto: context)
-        user.email = email
-        user.name = name
-        user.surname = surname
-        user.uuid = UUID
-        do {
-            try context.save()
-        } catch let error as NSError {
-            print("\(error), \(error.userInfo)")
         }
     }
     

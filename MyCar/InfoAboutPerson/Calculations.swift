@@ -20,7 +20,6 @@ func calculateAverageConsumption() -> (Double,Double,Double,Int) {
     //create Subject
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return (0,0,0,0)}
     let context = appDelegate.persistentContainer.viewContext
-    var countRecordInBase = 0
     //create array of refueling
     var refuelingArray: Array<DataRefuling> = []
     //create refueling
@@ -41,14 +40,6 @@ func calculateAverageConsumption() -> (Double,Double,Double,Int) {
                 guard let totalKM = totalMileage else {return (0,0,0,0)}
                 myRefueling = DataRefuling(fullTank: fulltank, literes: litr, price: pr, totalMileage: totalKM)
                 refuelingArray.append(myRefueling)
-                //                print(data.value(forKey: "literes") as! Double)
-//                for item in refuelingArray {
-//                    countRecordInBase += 1
-//                    print("Full tank? \(item.fullTank)")
-//                    print("\(item.literes) litres")
-//                    print("\(item.price) BYN")
-//                    print("\(item.totalMileage) KM")
-//                }
             }
         }
     } catch { }
@@ -56,7 +47,14 @@ func calculateAverageConsumption() -> (Double,Double,Double,Int) {
     var literes: Double = 0
     var price: Double = 0
     var totalMileage: Double = 0
-    var Mileage: Double = refuelingArray.last!.totalMileage
+    
+    let Mileage: Double
+    if (refuelingArray.last?.totalMileage) != nil
+    {
+        Mileage = refuelingArray.last!.totalMileage
+    } else {
+        Mileage = 0
+    }
     let startMileage: Double = refuelingArray[0].totalMileage
     let countRefueling = refuelingArray.count
     
@@ -72,7 +70,6 @@ func calculateAverageConsumption() -> (Double,Double,Double,Int) {
             price += refuelingArray[i].price
             totalMileage = refuelingArray[i].totalMileage - startMileage
         } else if refuelingArray[refuelingArray.count - 1].fullTank == true && refuelingArray.count > 1 {
-//            literes += refuelingArray[i - 1].literes
             price += refuelingArray[i].price
             totalMileage = refuelingArray[i].totalMileage - startMileage
         }
