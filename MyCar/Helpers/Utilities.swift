@@ -23,6 +23,16 @@ func createCustomTextField(_ textField: UITextField) {
     textField.layer.cornerRadius = 20
 }
 
+///Создает констрейнты во весь экран
+extension UIView {
+    static func fillAll(rootView: UIView, customView: UIView) {
+        customView.topAnchor.constraint(equalTo: rootView.topAnchor).isActive = true
+        customView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
+        customView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
+        customView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor).isActive = true
+    }
+}
+
 ///Создает кастомную персонализацию вьюхи
 func createCustomView(_ label: UIView) {
     label.layer.borderWidth = 1.3

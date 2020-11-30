@@ -100,15 +100,23 @@ class GasolineViewController: UIViewController {
         return refueling
     }()
     
+    let testButton: UIButton = {
+        let refueling = UIButton()
+        refueling.translatesAutoresizingMaskIntoConstraints = false
+        refueling.backgroundColor = UIColor.rgb(red: 113, green: 134, blue: 255)
+        refueling.layer.cornerRadius = 20
+        refueling.setTitle("test tableview", for: .normal)
+        refueling.setTitleColor(.white, for: .normal)
+        refueling.addTarget(self, action: #selector(testButtonTap(_:)), for: .touchUpInside)
+        return refueling
+    }()
+    
     override func loadView() {
         super.loadView()
         dataCalc = calculateAverageConsumption()
         
         view.addSubview(imageView)
-        imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        UIView.fillAll(rootView: view, customView: imageView)
         imageView.image = UIImage(named: "gasstation.jpg")
         
         view.addSubview(labelInfo)
@@ -191,6 +199,12 @@ class GasolineViewController: UIViewController {
         refuelingButton.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
         refuelingButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         refuelingButton.topAnchor.constraint(equalTo: viewMileage.bottomAnchor, constant: 20).isActive = true
+        
+        rootView.addSubview(testButton)
+        testButton.leadingAnchor.constraint(equalTo: refuelingButton.leadingAnchor).isActive = true
+        testButton.trailingAnchor.constraint(equalTo: refuelingButton.trailingAnchor).isActive = true
+        testButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        testButton.topAnchor.constraint(equalTo: refuelingButton.bottomAnchor, constant: 20).isActive = true
     }
 
     override func viewDidLoad() {
@@ -201,6 +215,11 @@ class GasolineViewController: UIViewController {
     func refuelingButtonTap(_: UIButton){
         let refuelingVC = RefuelingViewController.init()
         self.navigationController?.pushViewController(refuelingVC, animated: true)
+    }
+    
+    @objc func testButtonTap(_: UIButton) {
+        let petrolVisitVC = PetrolStationVisitListViewController()
+        self.navigationController?.pushViewController(petrolVisitVC, animated: true)
     }
     
 

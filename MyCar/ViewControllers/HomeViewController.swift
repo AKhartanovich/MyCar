@@ -61,10 +61,7 @@ class HomeViewController: UIViewController {
         dataCalc = calculateAverageConsumption()
         
         view.addSubview(imageView)
-        imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        UIView.fillAll(rootView: view, customView: imageView)
         imageView.image = UIImage(named: "home.jpg")
         
         view.addSubview(rootView)
@@ -103,6 +100,11 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     @objc
