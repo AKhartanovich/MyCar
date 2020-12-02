@@ -15,6 +15,15 @@ extension UIColor {
       }
 }
 
+extension UILabel {
+    func createCustomLable() {
+        translatesAutoresizingMaskIntoConstraints = false
+        layer.borderWidth = 1.3
+        layer.borderColor = UIColor.rgb(red: 113, green: 134, blue: 255).cgColor
+        layer.cornerRadius = 20
+    }
+}
+
 ///Создает кастомную персонализацию текстфилда
 func createCustomTextField(_ textField: UITextField) {
     textField.layer.borderWidth = 1.3
@@ -25,11 +34,25 @@ func createCustomTextField(_ textField: UITextField) {
 
 ///Создает констрейнты во весь экран
 extension UIView {
-    static func fillAll(rootView: UIView, customView: UIView) {
-        customView.topAnchor.constraint(equalTo: rootView.topAnchor).isActive = true
-        customView.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
-        customView.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
-        customView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor).isActive = true
+    func fillSuperView() {
+        guard let superview = superview else {return}
+        self.translatesAutoresizingMaskIntoConstraints = false
+        topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+        leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+    }
+    func top(equalTo anchor: NSLayoutAnchor<NSLayoutYAxisAnchor>, constant: CGFloat = 0){
+        topAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+    }
+    func bottom(equalTo anchor: NSLayoutAnchor<NSLayoutYAxisAnchor>,constant: CGFloat = 0){
+        bottomAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+    }
+    func leading(equalTo anchor: NSLayoutAnchor<NSLayoutXAxisAnchor>,constant: CGFloat = 0){
+        leadingAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+    }
+    func trailing(equalTo anchor: NSLayoutAnchor<NSLayoutXAxisAnchor>,constant: CGFloat = 0){
+        trailingAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
     }
 }
 
@@ -142,19 +165,44 @@ func retrieveDate(){
     }
 }
 
+
+
 ///Запрос в кордату с условием, вывод заправок по данному пользователю
-func getFuelingWithEmployee(username: String){
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-    //context
-    let context = appDelegate.persistentContainer.viewContext
-    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Refueling")
-    request.predicate = NSPredicate(format: "ANY users.uuid = %@", Person.instance.UUID)
-    do {
-        if let result = try context.fetch(request) as? [Refueling] {
-            for data in result as [NSManagedObject] {
-                print(data.value(forKey: "literes") as! Double)
-            }
-            print(result.count)
-        }
-    } catch { }
+//func getFuelingWithEmployee(username: String){
+//    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
+//    //context
+//    let context = appDelegate.persistentContainer.viewContext
+//    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Refueling")
+//    request.predicate = NSPredicate(format: "ANY users.uuid = %@", Person.instance.UUID)
+//    do {
+//        if let result = try context.fetch(request) as? [Refueling] {
+//            for data in result as [NSManagedObject] {
+//                print(data.value(forKey: "literes") as! Double)
+//            }
+//            print(result.count)
+//        }
+//    } catch { }
+//}
+
+
+
+class CustomButton: UIButton {
+    let closure: () -> Void
+    
+    init(closure: @escaping () -> Void) {
+        self.closure = closure
+        super.init(frame: .zero)
+        addTarget(self, action: #selector(addtrg(_:)), for: .touchUpInside)
+    }
+    
+    @objc func addtrg(_: UIButton){
+        closure()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
+
+
+

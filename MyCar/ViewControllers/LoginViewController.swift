@@ -67,14 +67,37 @@ class LoginViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(signUpButtonTap(_:)), for: .touchUpInside)
         return signUpButton
     }()
+
     
     override func loadView() {
         super.loadView()
         view.backgroundColor = .white
         
+//        for i in 0 ..< 10 {
+//            //As we know that container is set up in the AppDelegates so we need to refer that container.
+//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//            //We need to create a context from this container
+//            let context = appDelegate.persistentContainer.viewContext
+//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+////            request.predicate = NSPredicate(format: "email = %@", "khartanovichao@gmail.com")
+//            do
+//           {
+//            let test = try context.fetch(request)
+//            let objectToDelete = test[0] as! NSManagedObject
+//            context.delete(objectToDelete)
+//            do{
+//                try context.save()
+//            }
+//            catch {
+//                print(error)
+//            }
+//           } catch {
+//            print(error)
+//           }
+//        }
         
         view.addSubview(imageView)
-        UIView.fillAll(rootView: view, customView: imageView)
+        imageView.fillSuperView()
         imageView.image = UIImage(named: "home.jpg")
         
         
@@ -155,6 +178,10 @@ class LoginViewController: UIViewController {
                 let HomeTBC = RootTabBarController.init()
                 HomeTBC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(HomeTBC, animated: true, completion: .none)
+                self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+                self.navigationController?.navigationBar.shadowImage = UIImage()
+                self.navigationController?.navigationBar.isTranslucent = true
+                self.navigationController?.view.backgroundColor = UIColor.clear
             }
         }
     }

@@ -114,10 +114,25 @@ class GasolineViewController: UIViewController {
     override func loadView() {
         super.loadView()
         dataCalc = calculateAverageConsumption()
+        createLayaut()
         
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataCalc = calculateAverageConsumption()
+        createLayaut()
+        
+    }
+    
+    func createLayaut(){
         view.addSubview(imageView)
-        UIView.fillAll(rootView: view, customView: imageView)
-        imageView.image = UIImage(named: "gasstation.jpg")
+        imageView.fillSuperView()
+        imageView.image = UIImage(named: "i.jpg")
         
         view.addSubview(labelInfo)
         labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
@@ -206,20 +221,18 @@ class GasolineViewController: UIViewController {
         testButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         testButton.topAnchor.constraint(equalTo: refuelingButton.bottomAnchor, constant: 20).isActive = true
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     @objc
     func refuelingButtonTap(_: UIButton){
         let refuelingVC = RefuelingViewController.init()
         self.navigationController?.pushViewController(refuelingVC, animated: true)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     @objc func testButtonTap(_: UIButton) {
         let petrolVisitVC = PetrolStationVisitListViewController()
         self.navigationController?.pushViewController(petrolVisitVC, animated: true)
+        self.navigationController?.navigationBar.isHidden = false
     }
     
 

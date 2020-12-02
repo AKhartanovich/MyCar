@@ -91,8 +91,8 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         super.loadView()
         
         view.addSubview(imageView)
-        UIView.fillAll(rootView: view, customView: imageView)
-        imageView.image = UIImage(named: "Gas.jpg")
+        imageView.fillSuperView()
+        imageView.image = UIImage(named: "i.jpg")
         
         view.addSubview(labelInfo)
         labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true

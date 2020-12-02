@@ -55,21 +55,24 @@ func calculateAverageConsumption() -> (Double,Double,Double,Int) {
     } else {
         Mileage = 0
     }
-    let startMileage: Double = refuelingArray[0].totalMileage
+    var startMileage: Double = 0
     let countRefueling = refuelingArray.count
     
     for i in 0 ..< refuelingArray.count {
         if refuelingArray.count == 0{
             return (0,0,0,0)
         } else if refuelingArray.count == 1{
+            startMileage = refuelingArray[0].totalMileage
             literes += refuelingArray[i].literes - startMileage
             price += refuelingArray[i].price
             totalMileage = refuelingArray[i].totalMileage
         } else if refuelingArray[i].fullTank == false && refuelingArray.count > 1 {
+            startMileage = refuelingArray[0].totalMileage
             literes += refuelingArray[i].literes
             price += refuelingArray[i].price
             totalMileage = refuelingArray[i].totalMileage - startMileage
         } else if refuelingArray[refuelingArray.count - 1].fullTank == true && refuelingArray.count > 1 {
+            startMileage = refuelingArray[0].totalMileage
             price += refuelingArray[i].price
             totalMileage = refuelingArray[i].totalMileage - startMileage
         }

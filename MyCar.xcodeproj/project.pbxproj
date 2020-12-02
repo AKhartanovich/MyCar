@@ -19,8 +19,6 @@
 		FA3F8BC225527EA7006F833A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA3F8BC125527EA7006F833A /* GoogleService-Info.plist */; };
 		FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B868E256CFEBD00FFEC14 /* HomeViewController.swift */; };
 		FA5B8699256D036500FFEC14 /* GasolineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B8698256D036500FFEC14 /* GasolineViewController.swift */; };
-		FA5B86A7256D1F0200FFEC14 /* fuelIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5B86A5256D1F0200FFEC14 /* fuelIcon.png */; };
-		FA5B86A8256D1F0200FFEC14 /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5B86A6256D1F0200FFEC14 /* homeIcon.png */; };
 		FA5B86B5256D316C00FFEC14 /* gasstation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA5B86B4256D316C00FFEC14 /* gasstation.jpg */; };
 		FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86B8256D33C500FFEC14 /* DatePicker.swift */; };
 		FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86DF256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld */; };
@@ -28,13 +26,15 @@
 		FA5FE1F2256FD81200DF1373 /* RefuelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FE1F1256FD81200DF1373 /* RefuelingViewController.swift */; };
 		FA5FE1F5256FD89D00DF1373 /* Gas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA5FE1F4256FD89D00DF1373 /* Gas.jpg */; };
 		FA6DF3B2256E7B420007A9AC /* PersonInfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */; };
-		FAD26B8025701F30004000FC /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAD26B7F25701F30004000FC /* image.jpg */; };
+		FAD26B8025701F30004000FC /* i.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAD26B7F25701F30004000FC /* i.jpg */; };
 		FAD26B8325701FF1004000FC /* ScrollViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD26B8225701FF1004000FC /* ScrollViewViewController.swift */; };
 		FAD754EF25517BDA000CA1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */; };
 		FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */; };
 		FAD754F825517BDC000CA1C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD754F725517BDC000CA1C6 /* Assets.xcassets */; };
 		FAD754FB25517BDC000CA1C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD754F925517BDC000CA1C6 /* LaunchScreen.storyboard */; };
 		FAF3FDA8257508D00085CC5D /* PetrolStationVisitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */; };
+		FAF3FDB32577B0E30085CC5D /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB22577B0E30085CC5D /* homeIcon.png */; };
+		FAF3FDB62577B0F50085CC5D /* fuelIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB52577B0F50085CC5D /* fuelIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,8 +52,6 @@
 		FA3F8BC125527EA7006F833A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA5B868E256CFEBD00FFEC14 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FA5B8698256D036500FFEC14 /* GasolineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasolineViewController.swift; sourceTree = "<group>"; };
-		FA5B86A5256D1F0200FFEC14 /* fuelIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fuelIcon.png; path = ../../../../../Downloads/fuelIcon.png; sourceTree = "<group>"; };
-		FA5B86A6256D1F0200FFEC14 /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homeIcon.png; path = ../../../../../Downloads/homeIcon.png; sourceTree = "<group>"; };
 		FA5B86B4256D316C00FFEC14 /* gasstation.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = gasstation.jpg; sourceTree = "<group>"; };
 		FA5B86B8256D33C500FFEC14 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		FA5B86E0256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataMyCar.xcdatamodel; sourceTree = "<group>"; };
@@ -65,7 +63,7 @@
 		FA6DF3AA256E79D00007A9AC /* Users+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		FA6DF3AB256E79D00007A9AC /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoClass.swift; sourceTree = "<group>"; };
-		FAD26B7F25701F30004000FC /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		FAD26B7F25701F30004000FC /* i.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = i.jpg; sourceTree = "<group>"; };
 		FAD26B8225701FF1004000FC /* ScrollViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewViewController.swift; sourceTree = "<group>"; };
 		FAD754EB25517BDA000CA1C6 /* MyCar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +72,8 @@
 		FAD754FA25517BDC000CA1C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD754FC25517BDC000CA1C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetrolStationVisitListViewController.swift; sourceTree = "<group>"; };
+		FAF3FDB22577B0E30085CC5D /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
+		FAF3FDB52577B0F50085CC5D /* fuelIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fuelIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,12 +117,12 @@
 		FA3F8BAF25527D01006F833A /* Media */ = {
 			isa = PBXGroup;
 			children = (
-				FAD26B7F25701F30004000FC /* image.jpg */,
+				FAD26B7F25701F30004000FC /* i.jpg */,
 				FA5FE1F4256FD89D00DF1373 /* Gas.jpg */,
 				FA5B86B4256D316C00FFEC14 /* gasstation.jpg */,
-				FA5B86A5256D1F0200FFEC14 /* fuelIcon.png */,
-				FA5B86A6256D1F0200FFEC14 /* homeIcon.png */,
+				FAF3FDB52577B0F50085CC5D /* fuelIcon.png */,
 				FA3F8BB225527D39006F833A /* home.jpg */,
+				FAF3FDB22577B0E30085CC5D /* homeIcon.png */,
 				FA3F8BB325527D3A006F833A /* loginWalper.jpg */,
 				FA3F8BB425527D3A006F833A /* Preview.mp4 */,
 			);
@@ -139,8 +139,8 @@
 				FA5B868E256CFEBD00FFEC14 /* HomeViewController.swift */,
 				FA5B8698256D036500FFEC14 /* GasolineViewController.swift */,
 				FA5FE1F1256FD81200DF1373 /* RefuelingViewController.swift */,
-				FAD26B8225701FF1004000FC /* ScrollViewViewController.swift */,
 				FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */,
+				FAD26B8225701FF1004000FC /* ScrollViewViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -263,16 +263,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3F8BB525527D3A006F833A /* home.jpg in Resources */,
-				FAD26B8025701F30004000FC /* image.jpg in Resources */,
+				FAD26B8025701F30004000FC /* i.jpg in Resources */,
 				FA3F8BB625527D3A006F833A /* loginWalper.jpg in Resources */,
-				FA5B86A8256D1F0200FFEC14 /* homeIcon.png in Resources */,
 				FA5FE1F5256FD89D00DF1373 /* Gas.jpg in Resources */,
 				FA3F8BB725527D3A006F833A /* Preview.mp4 in Resources */,
-				FA5B86A7256D1F0200FFEC14 /* fuelIcon.png in Resources */,
 				FAD754FB25517BDC000CA1C6 /* LaunchScreen.storyboard in Resources */,
 				FAD754F825517BDC000CA1C6 /* Assets.xcassets in Resources */,
 				FA3F8BC225527EA7006F833A /* GoogleService-Info.plist in Resources */,
 				FA5B86B5256D316C00FFEC14 /* gasstation.jpg in Resources */,
+				FAF3FDB62577B0F50085CC5D /* fuelIcon.png in Resources */,
+				FAF3FDB32577B0E30085CC5D /* homeIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

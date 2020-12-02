@@ -92,7 +92,7 @@ class SignUpViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(imageView)
-        UIView.fillAll(rootView: view, customView: imageView)
+        imageView.fillSuperView()
         imageView.image = UIImage(named: "home.jpg")
         
         view.addSubview(rootView)
