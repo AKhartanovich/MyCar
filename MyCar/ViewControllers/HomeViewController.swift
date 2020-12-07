@@ -50,9 +50,18 @@ class HomeViewController: UIViewController {
     let test: UIButton = {
         let test = UIButton()
         test.translatesAutoresizingMaskIntoConstraints = false
-        test.setTitle("Don`t have an account? Sign up", for: .normal)
+        test.setTitle("test scroll", for: .normal)
         test.setTitleColor(.white, for: .normal)
         test.addTarget(self, action: #selector(test(_:)), for: .touchUpInside)
+        return test
+    }()
+    
+    let test1: UIButton = {
+        let test = UIButton()
+        test.translatesAutoresizingMaskIntoConstraints = false
+        test.setTitle("test collection", for: .normal)
+        test.setTitleColor(.white, for: .normal)
+        test.addTarget(self, action: #selector(test1(_:)), for: .touchUpInside)
         return test
     }()
     
@@ -97,6 +106,13 @@ class HomeViewController: UIViewController {
         test.centerYAnchor.constraint(equalTo: rootView.centerYAnchor).isActive = true
         test.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
+        rootView.addSubview(test1)
+        test1.topAnchor.constraint(equalTo: test.bottomAnchor, constant: 20).isActive = true
+        test1.leadingAnchor.constraint(equalTo: test.leadingAnchor).isActive = true
+        test1.trailingAnchor.constraint(equalTo: test.trailingAnchor).isActive = true
+        
+        test1.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
     }
 
     override func viewDidLoad() {
@@ -113,6 +129,9 @@ class HomeViewController: UIViewController {
     func test(_: UIButton) {
         navigationController?.pushViewController(ScrollViewViewController(), animated: true)
     }
-    
+    @objc
+    func test1(_: UIButton) {
+//        navigationController?.pushViewController(CollectionViewViewController(), animated: true)
+    }
 
 }

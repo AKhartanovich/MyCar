@@ -135,7 +135,7 @@ class GasolineViewController: UIViewController {
         imageView.image = UIImage(named: "i.jpg")
         
         view.addSubview(labelInfo)
-        labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
         labelInfo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         labelInfo.textColor = .rgb(red: 211, green: 211, blue: 211)
         labelInfo.text = "Refueling"
@@ -144,7 +144,7 @@ class GasolineViewController: UIViewController {
         labelInfo.heightAnchor.constraint(equalToConstant: 25).isActive = true
         
         view.addSubview(rootView)
-        rootView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
+        rootView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
         rootView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         rootView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         rootView.heightAnchor.constraint(equalToConstant: 500).isActive = true

@@ -11,7 +11,11 @@ import CoreData
 
 class PetrolStationVisitListViewController: UIViewController, UITextFieldDelegate{
     var refueling: DataRefuling = DataRefuling(fullTank: false, literes: 0, price: 0, totalMileage: 0)
-    var refuelingArray: Array<DataRefuling> = []
+    var refuelingArray: Array<DataRefuling> = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     let tableView = UITableView.init(frame: .zero, style: UITableView.Style.plain)
     let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(backAction(_:)))
       
@@ -31,6 +35,7 @@ class PetrolStationVisitListViewController: UIViewController, UITextFieldDelegat
         view.addSubview(tableView)
         tableView.fillSuperView()
         tableView.dataSource = self
+        tableView.delegate = self
     }
     func getFuelingWithEmployee(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
@@ -56,7 +61,29 @@ class PetrolStationVisitListViewController: UIViewController, UITextFieldDelegat
     }
     @objc func backAction(_: UIButton) -> Void {
         self.navigationController?.popViewController(animated: true)
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = true
+    }
+}
+
+extension PetrolStationVisitListViewController: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print(scrollView.contentOffset)
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.tableView.beginUpdates()
+            refuelingArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            self.tableView.endUpdates()
+        }
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let VC = ScrollViewViewController()
+        self.navigationController?.pushViewController(VC, animated: true)
     }
 }
 
@@ -66,7 +93,6 @@ extension PetrolStationVisitListViewController: UITableViewDataSource {
 //    func numberOfSections(in tableView: UITableView) -> Int {
 //        refuelingArray.count
 //    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         refuelingArray.count
     }

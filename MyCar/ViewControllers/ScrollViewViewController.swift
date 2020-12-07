@@ -3,7 +3,7 @@ import UIKit
 
 class ScrollViewViewController: UIViewController, UIScrollViewDelegate {
     
-    lazy var image = UIImage(named: "image.jpg")
+    lazy var image = UIImage(named: "loginWalper.jpg")
     lazy var imageView = UIImageView(image: image)
     lazy var scrollView: UIScrollView = {
         

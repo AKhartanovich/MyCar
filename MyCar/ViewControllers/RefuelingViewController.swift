@@ -95,7 +95,7 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         imageView.image = UIImage(named: "i.jpg")
         
         view.addSubview(labelInfo)
-        labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
         labelInfo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         labelInfo.textColor = .rgb(red: 211, green: 211, blue: 211)
         labelInfo.text = "Refueling"
