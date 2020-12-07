@@ -91,11 +91,8 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         super.loadView()
         
         view.addSubview(imageView)
-        imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        imageView.image = UIImage(named: "Gas.jpg")
+        imageView.fillSuperView()
+        imageView.image = UIImage(named: "i.jpg")
         
         view.addSubview(labelInfo)
         labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
@@ -168,7 +165,7 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-        @objc
+    @objc
     func backButtonTap(_: UIButton){
         if let viewControllers = self.navigationController?.viewControllers {
             for vc in viewControllers {
@@ -200,7 +197,8 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
             guard let countOfLitresDouble = Double(countOfLitres) else {return}
             guard let totalMileageDouble = Double(totalMileage) else {return}
             guard let priceDouble = Double(price) else {return}
-
+            
+            //Здесь создаются экземпляры классов кордаты
             let person = Users(entity: entityUsers, insertInto: context)
             person.email = Person.instance.email
             person.name = Person.instance.name
@@ -212,8 +210,9 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
             refueling.literes = countOfLitresDouble
             refueling.totalMileage = totalMileageDouble
             refueling.price = priceDouble
+            //Данной строкой реализована связь один к многим, те пользователь может иметь много заправок
+            //но заправка имеет только одного пользователя
             refueling.users = person
-
             do {
                 try context.save()
             } catch let error as NSError {
@@ -224,6 +223,8 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
             priceTextField.text = ""
         }
     
+    
+    //функция запрещает ввод символов в текстфилд
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //For numers
         if textField == countOfLitresTextField || textField == totalMileageTextField {

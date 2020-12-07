@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+///Выбор даты из текстфилда
 class DatePickerTextField: UITextField {
 
     lazy var datePicker: UIDatePicker = {

@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+///Синнгтон для хранения данных пользователя и доступа к ним из всех классов
 class Person {
     var UUID: String
     var email: String

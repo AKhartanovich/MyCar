@@ -67,17 +67,37 @@ class LoginViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(signUpButtonTap(_:)), for: .touchUpInside)
         return signUpButton
     }()
+
     
     override func loadView() {
         super.loadView()
         view.backgroundColor = .white
         
+//        for i in 0 ..< 10 {
+//            //As we know that container is set up in the AppDelegates so we need to refer that container.
+//            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//            //We need to create a context from this container
+//            let context = appDelegate.persistentContainer.viewContext
+//            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+////            request.predicate = NSPredicate(format: "email = %@", "khartanovichao@gmail.com")
+//            do
+//           {
+//            let test = try context.fetch(request)
+//            let objectToDelete = test[0] as! NSManagedObject
+//            context.delete(objectToDelete)
+//            do{
+//                try context.save()
+//            }
+//            catch {
+//                print(error)
+//            }
+//           } catch {
+//            print(error)
+//           }
+//        }
         
         view.addSubview(imageView)
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        imageView.fillSuperView()
         imageView.image = UIImage(named: "home.jpg")
         
         
@@ -85,7 +105,7 @@ class LoginViewController: UIViewController {
         rootView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
         rootView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         rootView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-
+        
         rootView.addSubview(emailTextField)
         emailTextField.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 40).isActive = true
         emailTextField.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
@@ -94,7 +114,7 @@ class LoginViewController: UIViewController {
         emailTextField.autocapitalizationType = .none
         emailTextField.textColor = .white
         createCustomTextField(emailTextField)
-
+        
         rootView.addSubview(passwordTextField)
         passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 10).isActive = true
         passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
@@ -103,7 +123,7 @@ class LoginViewController: UIViewController {
         passwordTextField.textColor = .white
         passwordTextField.isSecureTextEntry = true
         createCustomTextField(passwordTextField)
-
+        
         rootView.addSubview(loginButton)
         loginButton.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor).isActive = true
         loginButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor).isActive = true
@@ -115,7 +135,7 @@ class LoginViewController: UIViewController {
         signUpButton.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor).isActive = true
         signUpButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         signUpButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10).isActive = true
-
+        
         rootView.addSubview(errorLable)
         errorLable.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
         errorLable.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 10).isActive = true
@@ -126,17 +146,15 @@ class LoginViewController: UIViewController {
         errorLable.alpha = 0
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @objc func loginButtonTap(_: UIButton) {
-        
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
+        //Авторизация в Google firebase
         Auth.auth().signIn(withEmail: email, password: password) { [self] (result, error) in
             if let error = error {
                 self.errorLable.alpha = 1
@@ -144,9 +162,7 @@ class LoginViewController: UIViewController {
             } else {
                 guard let result = result else {return}
                 guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-                //context
                 let context = appDelegate.persistentContainer.viewContext
-                
                 let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
                 request.predicate = NSPredicate(format: "ANY email = %@", email)
                 do {
@@ -162,6 +178,10 @@ class LoginViewController: UIViewController {
                 let HomeTBC = RootTabBarController.init()
                 HomeTBC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(HomeTBC, animated: true, completion: .none)
+                self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+                self.navigationController?.navigationBar.shadowImage = UIImage()
+                self.navigationController?.navigationBar.isTranslucent = true
+                self.navigationController?.view.backgroundColor = UIColor.clear
             }
         }
     }
@@ -178,39 +198,4 @@ class LoginViewController: UIViewController {
             self.navigationController?.pushViewController(SignUpViewController.init(), animated: true)
         }
     }
-    
-    func deleteData(){
-        
-        //As we know that container is set up in the AppDelegates so we need to refer that container.
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        //We need to create a context from this container
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
-        request.predicate = NSPredicate(format: "email = %@", "khartanovichao@gmail.com")
-        
-        do
-       {
-        let test = try context.fetch(request)
-        
-        let objectToDelete = test[0] as! NSManagedObject
-        context.delete(objectToDelete)
-        
-        do{
-            try context.save()
-        }
-        catch
-        {
-            print(error)
-        }
-        
-       }
-        catch
-        {
-            print(error)
-        }
-    }
-
-
 }

@@ -47,16 +47,23 @@ class HomeViewController: UIViewController {
         return label
     }()
     
+    let test: UIButton = {
+        let test = UIButton()
+        test.translatesAutoresizingMaskIntoConstraints = false
+        test.setTitle("Don`t have an account? Sign up", for: .normal)
+        test.setTitleColor(.white, for: .normal)
+        test.addTarget(self, action: #selector(test(_:)), for: .touchUpInside)
+        return test
+    }()
+    
+    
     override func loadView() {
         super.loadView()
-        dataCalc = calculateAverageConsumption()
+//        dataCalc = calculateAverageConsumption()
         
         view.addSubview(imageView)
-        imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        imageView.image = UIImage(named: "home.jpg")
+        imageView.fillSuperView()
+        imageView.image = UIImage(named: "i.jpg")
         
         view.addSubview(rootView)
         rootView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
@@ -84,51 +91,28 @@ class HomeViewController: UIViewController {
         labal3.trailingAnchor.constraint(equalTo: labal2.trailingAnchor, constant: -10).isActive = true
         labal3.textAlignment = .left
         labal3.text = "Общий пробег : " + String(dataCalc.2) + " Km"
+        
+        rootView.addSubview(test)
+        test.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
+        test.centerYAnchor.constraint(equalTo: rootView.centerYAnchor).isActive = true
+        test.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    
-    
-    func retrieveDate(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        //context
-        let context = appDelegate.persistentContainer.viewContext
         
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "name") as! String)
-                print(data.value(forKey: "surname") as! String)
-                print(data.value(forKey: "email") as! String)
-                print(data.value(forKey: "uuid") as! String)
-            }
-        } catch let error as NSError {
-            print(error)
-        }
     }
     
-    func getFuelingWithEmployee(username: String){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-        //context
-        let context = appDelegate.persistentContainer.viewContext
-
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Refueling")
-        request.predicate = NSPredicate(format: "ANY users.uuid = %@", Person.instance.UUID)
-        do {
-            if let result = try context.fetch(request) as? [Refueling] {
-                for data in result as [NSManagedObject] {
-                    print(data.value(forKey: "literes") as! Double)
-                }
-                print(result.count)
-            }
-        } catch { }
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+        dataCalc = calculateAverageConsumption()
     }
     
-
-
+    @objc
+    func test(_: UIButton) {
+        navigationController?.pushViewController(ScrollViewViewController(), animated: true)
+    }
+    
 
 }
