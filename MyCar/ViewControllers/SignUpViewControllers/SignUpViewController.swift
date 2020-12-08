@@ -11,6 +11,8 @@ import CoreData
 
 class SignUpViewController: UIViewController {
     
+    let myColor = UIColor.rgb(red: 113, green: 134, blue: 255)
+    
     let imageView: UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -108,7 +110,8 @@ class SignUpViewController: UIViewController {
         emailTextField.autocapitalizationType = .none
         emailTextField.text = "khartanovichao@gmail.com"
         emailTextField.textColor = .white
-        createCustomTextField(emailTextField)
+        emailTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        emailTextField.indent(size: 20)
         
         rootView.addSubview(nameTextField)
         nameTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor).isActive = true
@@ -118,7 +121,8 @@ class SignUpViewController: UIViewController {
         nameTextField.autocapitalizationType = .none
         nameTextField.text = "Alexander"
         nameTextField.textColor = .white
-        createCustomTextField(nameTextField)
+        nameTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        nameTextField.indent(size: 20)
         
         rootView.addSubview(surnameTextField)
         surnameTextField.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor).isActive = true
@@ -128,7 +132,8 @@ class SignUpViewController: UIViewController {
         surnameTextField.autocapitalizationType = .none
         surnameTextField.text = "Khartanovich"
         surnameTextField.textColor = .white
-        createCustomTextField(surnameTextField)
+        surnameTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        surnameTextField.indent(size: 20)
         
         rootView.addSubview(passwordTextField)
         passwordTextField.leadingAnchor.constraint(equalTo: surnameTextField.leadingAnchor).isActive = true
@@ -139,7 +144,8 @@ class SignUpViewController: UIViewController {
         passwordTextField.textColor = .white
         passwordTextField.text = "Qwerty123"
         passwordTextField.isSecureTextEntry = true
-        createCustomTextField(passwordTextField)
+        passwordTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        passwordTextField.indent(size: 20)
         
         rootView.addSubview(passwordRepeatTextField)
         passwordRepeatTextField.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor).isActive = true
@@ -150,7 +156,8 @@ class SignUpViewController: UIViewController {
         passwordRepeatTextField.textColor = .white
         passwordRepeatTextField.text = "Qwerty123"
         passwordRepeatTextField.isSecureTextEntry = true
-        createCustomTextField(passwordRepeatTextField)
+        passwordRepeatTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        passwordRepeatTextField.indent(size: 20)
         
         rootView.addSubview(signUpButton)
         signUpButton.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
@@ -202,9 +209,10 @@ class SignUpViewController: UIViewController {
             } else {
                 guard let result = result else {return}
                 //создание пользователя в таблице
-                createData(name: name, surname: surname, UUID: result.user.uid, email: email)
+//                createData(name: name, surname: surname, UUID: result.user.uid, email: email)
+                createDataFor(entity: "Users", name: name, surname: surname, UUID: result.user.uid, email: email)
                 Person.createWith(userName: email, UUID: result.user.uid, name: name, surname: surname)
-//                print("\(Person.instance.UUID), \(Person.instance.email), \(Person.instance.name), \(Person.instance.surname)")
+                print("\(Person.instance.UUID), \(Person.instance.email), \(Person.instance.name), \(Person.instance.surname)")
                 let HomeTBC = RootTabBarController.init()
                 HomeTBC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(HomeTBC, animated: true, completion: .none)

@@ -33,6 +33,10 @@
 		FAD754F825517BDC000CA1C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD754F725517BDC000CA1C6 /* Assets.xcassets */; };
 		FAD754FB25517BDC000CA1C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAD754F925517BDC000CA1C6 /* LaunchScreen.storyboard */; };
 		FADBAB4E257E8B32009415B9 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBAB4D257E8B32009415B9 /* CollectionViewController.swift */; };
+		FADBAB8B257F5F78009415B9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBAB8A257F5F78009415B9 /* Extensions.swift */; };
+		FADBAB8E257F72D8009415B9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBAB8D257F72D8009415B9 /* CustomButton.swift */; };
+		FADBABB8257F7C3B009415B9 /* FirebaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABB7257F7C3B009415B9 /* FirebaseMethods.swift */; };
+		FADBABBE257FB057009415B9 /* CoreDataMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABBD257FB057009415B9 /* CoreDataMethods.swift */; };
 		FAF3FDA8257508D00085CC5D /* PetrolStationVisitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */; };
 		FAF3FDB32577B0E30085CC5D /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB22577B0E30085CC5D /* homeIcon.png */; };
 		FAF3FDB62577B0F50085CC5D /* fuelIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB52577B0F50085CC5D /* fuelIcon.png */; };
@@ -73,6 +77,10 @@
 		FAD754FA25517BDC000CA1C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAD754FC25517BDC000CA1C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADBAB4D257E8B32009415B9 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		FADBAB8A257F5F78009415B9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FADBAB8D257F72D8009415B9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		FADBABB7257F7C3B009415B9 /* FirebaseMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMethods.swift; sourceTree = "<group>"; };
+		FADBABBD257FB057009415B9 /* CoreDataMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMethods.swift; sourceTree = "<group>"; };
 		FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetrolStationVisitListViewController.swift; sourceTree = "<group>"; };
 		FAF3FDB22577B0E30085CC5D /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
 		FAF3FDB52577B0F50085CC5D /* fuelIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fuelIcon.png; sourceTree = "<group>"; };
@@ -110,8 +118,12 @@
 		FA3F8BAE25527CF7006F833A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FADBABBC257FB03F009415B9 /* CoreDataMethods */,
+				FADBABB6257F7C1B009415B9 /* Firebase */,
 				FA3F8BB025527D27006F833A /* Utilities.swift */,
 				FA5B86B8256D33C500FFEC14 /* DatePicker.swift */,
+				FADBAB8A257F5F78009415B9 /* Extensions.swift */,
+				FADBAB8D257F72D8009415B9 /* CustomButton.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -134,16 +146,10 @@
 		FA3F8BB825527D44006F833A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA3F8BBA25527D60006F833A /* RootTabBarController.swift */,
-				FA3F8BB925527D60006F833A /* LoginViewController.swift */,
-				FA3F8BBC25527D60006F833A /* SignUpViewController.swift */,
-				FA3F8BBB25527D60006F833A /* StartUpViewController.swift */,
-				FA5B868E256CFEBD00FFEC14 /* HomeViewController.swift */,
-				FA5B8698256D036500FFEC14 /* GasolineViewController.swift */,
-				FA5FE1F1256FD81200DF1373 /* RefuelingViewController.swift */,
-				FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */,
-				FAD26B8225701FF1004000FC /* ScrollViewViewController.swift */,
-				FADBAB4D257E8B32009415B9 /* CollectionViewController.swift */,
+				FADBAB7F257F4B84009415B9 /* StartUpViewControllers */,
+				FADBAB80257F4BA2009415B9 /* LoginViewControllers */,
+				FADBAB81257F4BC4009415B9 /* SignUpViewControllers */,
+				FADBAB83257F4C05009415B9 /* MainTabBarViewController+NavigationsControllers */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -189,20 +195,98 @@
 		FAD754ED25517BDA000CA1C6 /* MyCar */ = {
 			isa = PBXGroup;
 			children = (
+				FAD754FC25517BDC000CA1C6 /* Info.plist */,
+				FADBAB52257F49DE009415B9 /* System */,
 				FA6DF357256E70E20007A9AC /* CoreDataClasses */,
-				FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */,
-				FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */,
 				FA3F8BAF25527D01006F833A /* Media */,
 				FA3F8BAE25527CF7006F833A /* Helpers */,
 				FA5B86AF256D26EC00FFEC14 /* InfoAboutPerson */,
 				FA3F8BB825527D44006F833A /* ViewControllers */,
+			);
+			path = MyCar;
+			sourceTree = "<group>";
+		};
+		FADBAB52257F49DE009415B9 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				FAD754EE25517BDA000CA1C6 /* AppDelegate.swift */,
+				FAD754F025517BDA000CA1C6 /* SceneDelegate.swift */,
 				FAD754F725517BDC000CA1C6 /* Assets.xcassets */,
 				FAD754F925517BDC000CA1C6 /* LaunchScreen.storyboard */,
 				FA3F8BC125527EA7006F833A /* GoogleService-Info.plist */,
-				FAD754FC25517BDC000CA1C6 /* Info.plist */,
 				FA5B86DF256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld */,
 			);
-			path = MyCar;
+			path = System;
+			sourceTree = "<group>";
+		};
+		FADBAB7F257F4B84009415B9 /* StartUpViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA3F8BBB25527D60006F833A /* StartUpViewController.swift */,
+			);
+			path = StartUpViewControllers;
+			sourceTree = "<group>";
+		};
+		FADBAB80257F4BA2009415B9 /* LoginViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA3F8BB925527D60006F833A /* LoginViewController.swift */,
+			);
+			path = LoginViewControllers;
+			sourceTree = "<group>";
+		};
+		FADBAB81257F4BC4009415B9 /* SignUpViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA3F8BBC25527D60006F833A /* SignUpViewController.swift */,
+			);
+			path = SignUpViewControllers;
+			sourceTree = "<group>";
+		};
+		FADBAB83257F4C05009415B9 /* MainTabBarViewController+NavigationsControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA3F8BBA25527D60006F833A /* RootTabBarController.swift */,
+				FADBAB84257F4C5A009415B9 /* HomePageViewControllers */,
+				FADBAB85257F4C87009415B9 /* RefuelingViewControllers */,
+			);
+			path = "MainTabBarViewController+NavigationsControllers";
+			sourceTree = "<group>";
+		};
+		FADBAB84257F4C5A009415B9 /* HomePageViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA5B868E256CFEBD00FFEC14 /* HomeViewController.swift */,
+				FAD26B8225701FF1004000FC /* ScrollViewViewController.swift */,
+				FADBAB4D257E8B32009415B9 /* CollectionViewController.swift */,
+			);
+			path = HomePageViewControllers;
+			sourceTree = "<group>";
+		};
+		FADBAB85257F4C87009415B9 /* RefuelingViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA5B8698256D036500FFEC14 /* GasolineViewController.swift */,
+				FA5FE1F1256FD81200DF1373 /* RefuelingViewController.swift */,
+				FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */,
+			);
+			path = RefuelingViewControllers;
+			sourceTree = "<group>";
+		};
+		FADBABB6257F7C1B009415B9 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				FADBABB7257F7C3B009415B9 /* FirebaseMethods.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		FADBABBC257FB03F009415B9 /* CoreDataMethods */ = {
+			isa = PBXGroup;
+			children = (
+				FADBABBD257FB057009415B9 /* CoreDataMethods.swift */,
+			);
+			path = CoreDataMethods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,16 +413,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAD754EF25517BDA000CA1C6 /* AppDelegate.swift in Sources */,
+				FADBABBE257FB057009415B9 /* CoreDataMethods.swift in Sources */,
 				FA3F8BC025527D60006F833A /* SignUpViewController.swift in Sources */,
 				FA5B8699256D036500FFEC14 /* GasolineViewController.swift in Sources */,
 				FAD26B8325701FF1004000FC /* ScrollViewViewController.swift in Sources */,
+				FADBAB8E257F72D8009415B9 /* CustomButton.swift in Sources */,
 				FA3F8BB125527D27006F833A /* Utilities.swift in Sources */,
 				FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */,
 				FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */,
+				FADBAB8B257F5F78009415B9 /* Extensions.swift in Sources */,
 				FAF3FDA8257508D00085CC5D /* PetrolStationVisitListViewController.swift in Sources */,
 				FA3F8BBD25527D60006F833A /* LoginViewController.swift in Sources */,
 				FADBAB4E257E8B32009415B9 /* CollectionViewController.swift in Sources */,
 				FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */,
+				FADBABB8257F7C3B009415B9 /* FirebaseMethods.swift in Sources */,
 				FA5FE1F2256FD81200DF1373 /* RefuelingViewController.swift in Sources */,
 				FA5FE1EF256F812E00DF1373 /* Calculations.swift in Sources */,
 				FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */,

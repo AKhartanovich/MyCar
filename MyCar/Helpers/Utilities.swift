@@ -7,61 +7,7 @@
 
 import UIKit
 import CoreData
-
-///Функция чтобы цвет было проще заносить
-extension UIColor {
-    static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
-        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
-      }
-}
-
-extension UILabel {
-    func createCustomLable() {
-        translatesAutoresizingMaskIntoConstraints = false
-        layer.borderWidth = 1.3
-        layer.borderColor = UIColor.rgb(red: 113, green: 134, blue: 255).cgColor
-        layer.cornerRadius = 20
-    }
-}
-
-///Создает кастомную персонализацию текстфилда
-func createCustomTextField(_ textField: UITextField) {
-    textField.layer.borderWidth = 1.3
-    textField.layer.borderColor = UIColor.rgb(red: 113, green: 134, blue: 255).cgColor
-    textField.indent(size: 20)
-    textField.layer.cornerRadius = 20
-}
-
-///Создает констрейнты во весь экран
-extension UIView {
-    func fillSuperView() {
-        guard let superview = superview else {return}
-        self.translatesAutoresizingMaskIntoConstraints = false
-        topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
-        leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
-    }
-    func top(equalTo anchor: NSLayoutAnchor<NSLayoutYAxisAnchor>, constant: CGFloat = 0){
-        topAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
-    }
-    func bottom(equalTo anchor: NSLayoutAnchor<NSLayoutYAxisAnchor>,constant: CGFloat = 0){
-        bottomAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
-    }
-    func leading(equalTo anchor: NSLayoutAnchor<NSLayoutXAxisAnchor>,constant: CGFloat = 0){
-        leadingAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
-    }
-    func trailing(equalTo anchor: NSLayoutAnchor<NSLayoutXAxisAnchor>,constant: CGFloat = 0){
-        trailingAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
-    }
-}
-
-///Создает кастомную персонализацию вьюхи
-func createCustomView(_ label: UIView) {
-    label.layer.borderWidth = 1.3
-    label.layer.borderColor = UIColor.rgb(red: 113, green: 134, blue: 255).cgColor
-    label.layer.cornerRadius = 10
-}
+import AVKit
 
 ///Проверка на валидность емейла
 func validEmailId(inputText: String)-> Bool {
@@ -80,89 +26,27 @@ func validPassword(inputPassword: String) -> Bool {
 }
 
 
-extension UITextField{
-    
-    ///Задает для текстфилда цвет шрифта и текст внутри его
-    func setPlaceHolderWith(color: UIColor, text: String){
-        self.attributedPlaceholder = NSAttributedString(string: text, attributes: [NSAttributedString.Key.foregroundColor : color])
-    }
-    
-    ///Отступ в текстфилдах
-    func indent(size:CGFloat) {
-        self.leftView = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.minY, width: size, height: self.frame.height))
-        self.leftViewMode = .always
-    }
-}
 
-extension UITabBar {
-    
-    ///В таббарвьюконтроллере делает прозрачным таббар
-    static func setTransparentTabbar () {
-        UITabBar.appearance().backgroundImage = UIImage()
-        UITabBar.appearance().shadowImage = UIImage()
-        UITabBar.appearance().clipsToBounds = true
-    }
-}
-
-///Функция удаления из базы по условию
-func deleteData(){
-    //As we know that container is set up in the AppDelegates so we need to refer that container.
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-    //We need to create a context from this container
-    let context = appDelegate.persistentContainer.viewContext
-    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
-    request.predicate = NSPredicate(format: "email = %@", "khartanovichao@gmail.com")
-    do
-   {
-    let test = try context.fetch(request)
-    let objectToDelete = test[0] as! NSManagedObject
-    context.delete(objectToDelete)
-    do{
-        try context.save()
-    }
-    catch {
-        print(error)
-    }
-   } catch {
-    print(error)
-   }
-}
-
-///Создание пользователя в Core Data
-func createData(name: String, surname: String, UUID: String, email: String) {
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-    //context
-    let context = appDelegate.persistentContainer.viewContext
-    //Entity
-    guard let entity = NSEntityDescription.entity(forEntityName: "Users", in: context) else {return}
-    let user = Users(entity: entity, insertInto: context)
-    user.email = email
-    user.name = name
-    user.surname = surname
-    user.uuid = UUID
-    do {
-        try context.save()
-    } catch let error as NSError {
-        print("\(error), \(error.userInfo)")
-    }
-}
-
-/// Получение информации о пользователях в CoreData
-func retrieveDate(){
-    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
-    let context = appDelegate.persistentContainer.viewContext
-    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
-    do {
-        let result = try context.fetch(request)
-        for data in result as! [NSManagedObject] {
-            print(data.value(forKey: "name") as! String)
-            print(data.value(forKey: "surname") as! String)
-            print(data.value(forKey: "email") as! String)
-            print(data.value(forKey: "uuid") as! String)
-        }
-    } catch let error as NSError {
-        print(error)
-    }
+///Add video on custom view
+func setUpVideo(view: UIView, resourse: String, type: String) {
+    var player:AVPlayer?
+    var playerLayer: AVPlayerLayer?
+    //get the path to the resurce in the bundle
+    guard let bundlePath = Bundle.main.path(forResource: resourse, ofType: type) else {return}
+    //create URL for it
+    let url = URL(fileURLWithPath: bundlePath)
+    // create the video player item
+    let item = AVPlayerItem(url: url)
+    //create video player
+    player = AVPlayer(playerItem: item)
+    //create the layer
+    playerLayer = AVPlayerLayer(player: player)
+    //Size and frame
+    playerLayer?.frame = CGRect(x: -view.frame.size.width*1.5, y: 0, width: view.frame.size.width*4, height: view.frame.size.height)
+    view.layer.insertSublayer(playerLayer!, at: 0)
+    //add it to the view and oplay it
+    player?.isMuted = true
+    player?.playImmediately(atRate: 1)
 }
 
 
@@ -186,23 +70,7 @@ func retrieveDate(){
 
 
 
-class CustomButton: UIButton {
-    let closure: () -> Void
-    
-    init(closure: @escaping () -> Void) {
-        self.closure = closure
-        super.init(frame: .zero)
-        addTarget(self, action: #selector(addtrg(_:)), for: .touchUpInside)
-    }
-    
-    @objc func addtrg(_: UIButton){
-        closure()
-    }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
 
 
 

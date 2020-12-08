@@ -73,6 +73,7 @@ class HomeViewController: UIViewController {
         view.addSubview(imageView)
         imageView.fillSuperView()
         imageView.image = UIImage(named: "i.jpg")
+        print(Person.instance.UUID)
         
         view.addSubview(rootView)
         rootView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true

@@ -154,7 +154,7 @@ class GasolineViewController: UIViewController {
         viewAverageConsumption.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
         viewAverageConsumption.trailingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: -10).isActive = true
         viewAverageConsumption.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        createCustomView(viewAverageConsumption)
+        viewAverageConsumption.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
         
         viewAverageConsumption.addSubview(labelaverageConsumption)
         labelaverageConsumption.centerXAnchor.constraint(equalTo: viewAverageConsumption.centerXAnchor).isActive = true
@@ -169,7 +169,7 @@ class GasolineViewController: UIViewController {
         viewPrice.leadingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: 10).isActive = true
         viewPrice.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
         viewPrice.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        createCustomView(viewPrice)
+        viewPrice.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
         
         viewAverageConsumption.addSubview(labelPrice)
         labelPrice.centerXAnchor.constraint(equalTo: viewPrice.centerXAnchor).isActive = true
@@ -184,7 +184,7 @@ class GasolineViewController: UIViewController {
         viewMileage.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
         viewMileage.trailingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: -10).isActive = true
         viewMileage.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        createCustomView(viewMileage)
+        viewMileage.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
         
         viewAverageConsumption.addSubview(labelMileage)
         labelMileage.centerXAnchor.constraint(equalTo: viewMileage.centerXAnchor).isActive = true
@@ -199,7 +199,7 @@ class GasolineViewController: UIViewController {
         viewCountRefueling.leadingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: 10).isActive = true
         viewCountRefueling.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
         viewCountRefueling.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        createCustomView(viewCountRefueling)
+        viewCountRefueling.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
         
         viewAverageConsumption.addSubview(labelCountRefueling)
         labelCountRefueling.centerXAnchor.constraint(equalTo: viewCountRefueling.centerXAnchor).isActive = true
