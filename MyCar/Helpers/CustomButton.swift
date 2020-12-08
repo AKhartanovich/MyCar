@@ -11,7 +11,7 @@ import UIKit
 class CustomButton: UIButton {
     let closure: () -> Void
     
-    init(backgroundColor: UIColor, cornerRadius: CGFloat = 0, title: String = "", titleColor: UIColor = .white, borderWidth: CGFloat = 0, borderColor: CGColor = .init(red: 0, green: 0, blue: 0, alpha: 0), closure: @escaping () -> Void) {
+    init(backgroundColor: UIColor = .clear, cornerRadius: CGFloat = 0, title: String = "", titleColor: UIColor = .white, borderWidth: CGFloat = 0, borderColor: CGColor = .init(red: 0, green: 0, blue: 0, alpha: 0), closure: @escaping () -> Void) {
         self.closure = closure
         super.init(frame: .zero)
         self.translatesAutoresizingMaskIntoConstraints = false

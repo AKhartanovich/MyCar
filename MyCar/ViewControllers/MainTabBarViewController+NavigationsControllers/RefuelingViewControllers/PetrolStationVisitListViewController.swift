@@ -41,7 +41,7 @@ class PetrolStationVisitListViewController: UIViewController, UITextFieldDelegat
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Refueling")
-        request.predicate = NSPredicate(format: "ANY users.uuid = %@", Person.instance.UUID)
+        request.predicate = NSPredicate(format: "ANY users.uuid = %@", UserDataManager.instance.UUID)
         do {
             if let result = try context.fetch(request) as? [Refueling] {
                 for data in result as [NSManagedObject] {

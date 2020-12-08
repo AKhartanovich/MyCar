@@ -37,6 +37,7 @@
 		FADBAB8E257F72D8009415B9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBAB8D257F72D8009415B9 /* CustomButton.swift */; };
 		FADBABB8257F7C3B009415B9 /* FirebaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABB7257F7C3B009415B9 /* FirebaseMethods.swift */; };
 		FADBABBE257FB057009415B9 /* CoreDataMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABBD257FB057009415B9 /* CoreDataMethods.swift */; };
+		FADBABC2257FB918009415B9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABC1257FB918009415B9 /* CustomTextField.swift */; };
 		FAF3FDA8257508D00085CC5D /* PetrolStationVisitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */; };
 		FAF3FDB32577B0E30085CC5D /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB22577B0E30085CC5D /* homeIcon.png */; };
 		FAF3FDB62577B0F50085CC5D /* fuelIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB52577B0F50085CC5D /* fuelIcon.png */; };
@@ -81,6 +82,7 @@
 		FADBAB8D257F72D8009415B9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FADBABB7257F7C3B009415B9 /* FirebaseMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMethods.swift; sourceTree = "<group>"; };
 		FADBABBD257FB057009415B9 /* CoreDataMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMethods.swift; sourceTree = "<group>"; };
+		FADBABC1257FB918009415B9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetrolStationVisitListViewController.swift; sourceTree = "<group>"; };
 		FAF3FDB22577B0E30085CC5D /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
 		FAF3FDB52577B0F50085CC5D /* fuelIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fuelIcon.png; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				FA5B86B8256D33C500FFEC14 /* DatePicker.swift */,
 				FADBAB8A257F5F78009415B9 /* Extensions.swift */,
 				FADBAB8D257F72D8009415B9 /* CustomButton.swift */,
+				FADBABC1257FB918009415B9 /* CustomTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				FADBAB8B257F5F78009415B9 /* Extensions.swift in Sources */,
 				FAF3FDA8257508D00085CC5D /* PetrolStationVisitListViewController.swift in Sources */,
 				FA3F8BBD25527D60006F833A /* LoginViewController.swift in Sources */,
+				FADBABC2257FB918009415B9 /* CustomTextField.swift in Sources */,
 				FADBAB4E257E8B32009415B9 /* CollectionViewController.swift in Sources */,
 				FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */,
 				FADBABB8257F7C3B009415B9 /* FirebaseMethods.swift in Sources */,

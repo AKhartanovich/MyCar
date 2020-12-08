@@ -205,10 +205,10 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
             
             //Здесь создаются экземпляры классов кордаты
             let person = Users(entity: entityUsers, insertInto: context)
-            person.email = Person.instance.email
-            person.name = Person.instance.name
-            person.surname = Person.instance.surname
-            person.uuid = Person.instance.UUID
+            person.email = UserDataManager.instance.email
+            person.name = UserDataManager.instance.name
+            person.surname = UserDataManager.instance.surname
+            person.uuid = UserDataManager.instance.UUID
 
             let refueling = Refueling(entity: entityRefueling, insertInto: context)
             refueling.fullTank = switchBool
