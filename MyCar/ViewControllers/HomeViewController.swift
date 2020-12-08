@@ -131,7 +131,7 @@ class HomeViewController: UIViewController {
     }
     @objc
     func test1(_: UIButton) {
-//        navigationController?.pushViewController(CollectionViewViewController(), animated: true)
+        navigationController?.pushViewController(CollectionViewController(), animated: true)
     }
 
 }
