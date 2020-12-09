@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PetrolStationVisitListViewController: UIViewController, UITextFieldDelegate{
+class PetrolStationVisitListViewController: UIViewController {
     var refueling: DataRefuling = DataRefuling(fullTank: false, literes: 0, price: 0, totalMileage: 0)
     var refuelingArray: Array<DataRefuling> = [] {
         didSet {
@@ -112,7 +112,7 @@ extension PetrolStationVisitListViewController: UITableViewDataSource {
     }
 }
 
-class CustomCell: UITableViewCell, UITextFieldDelegate {
+class CustomCell: UITableViewCell {
     
     var fullTantLabel: UILabel = UILabel()
     var literesLabel: UILabel = UILabel()

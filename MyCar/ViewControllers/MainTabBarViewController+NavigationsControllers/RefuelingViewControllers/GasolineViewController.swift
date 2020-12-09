@@ -14,107 +14,74 @@ class GasolineViewController: UIViewController {
     let myColor = UIColor.rgb(red: 113, green: 134, blue: 255)
     var dataCalc: (Double,Double,Double,Int) = (0,0,0,0)
     
+    let stackViewWithLabel: UIStackView = {
+        let stackView = UIStackView()
+        stackView.activateConstraint()
+        stackView.distribution = .fill
+        stackView.axis = .vertical
+        stackView.spacing = 110
+        return stackView
+    }()
+    
+    let stackViewWithButtoms: UIStackView = {
+        let stackView = UIStackView()
+        stackView.activateConstraint()
+        stackView.distribution = .fill
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        return stackView
+    }()
+    
     let imageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.activateConstraint()
         return imageView
     }()
     
     let labelInfo: UILabel = {
        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 4
+        label.activateConstraint()
         return label
     }()
     
-    let rootView: UIView = {
-       let rootView = UIView()
-        rootView.translatesAutoresizingMaskIntoConstraints = false
-        return rootView
+    let view1InStack: UIView = {
+        let view = UIView()
+        view.activateConstraint()
+        return view
     }()
     
-    let labelaverageConsumption: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 4
-        label.textColor = .white
-        return label
+    let view2InStack: UIView = {
+        let view = UIView()
+        view.activateConstraint()
+        return view
     }()
+    let labelaverageConsumption: PaddingLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
+    let labelPrice: PaddingLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
+    let labelMileage: PaddingLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
+    let labelCountRefueling: PaddingLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
     
-    let viewAverageConsumption: UIView = {
-       let rootView = UIView()
-        rootView.translatesAutoresizingMaskIntoConstraints = false
-        return rootView
-    }()
-    
-    let labelPrice: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 4
-        label.textColor = .white
-        return label
-    }()
-    
-    let viewPrice: UIView = {
-       let rootView = UIView()
-        rootView.translatesAutoresizingMaskIntoConstraints = false
-        return rootView
-    }()
-    
-    let labelMileage: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 4
-        label.textColor = .white
-        return label
-    }()
-    
-    let viewMileage: UIView = {
-       let rootView = UIView()
-        rootView.translatesAutoresizingMaskIntoConstraints = false
-        return rootView
-    }()
-    
-    let labelCountRefueling: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 4
-        label.textColor = .white
-        return label
-    }()
-    
-    let viewCountRefueling: UIView = {
-       let rootView = UIView()
-        rootView.translatesAutoresizingMaskIntoConstraints = false
-        return rootView
-    }()
-    
-    let refuelingButton: UIButton = {
-        let refueling = UIButton()
-        refueling.translatesAutoresizingMaskIntoConstraints = false
-        refueling.backgroundColor = UIColor.rgb(red: 113, green: 134, blue: 255)
-        refueling.layer.cornerRadius = 20
-        refueling.setTitle("Refueling", for: .normal)
-        refueling.setTitleColor(.white, for: .normal)
-        refueling.addTarget(self, action: #selector(refuelingButtonTap(_:)), for: .touchUpInside)
-        return refueling
-    }()
-    
-    let testButton: UIButton = {
-        let refueling = UIButton()
-        refueling.translatesAutoresizingMaskIntoConstraints = false
-        refueling.backgroundColor = UIColor.rgb(red: 113, green: 134, blue: 255)
-        refueling.layer.cornerRadius = 20
-        refueling.setTitle("test tableview", for: .normal)
-        refueling.setTitleColor(.white, for: .normal)
-        refueling.addTarget(self, action: #selector(testButtonTap(_:)), for: .touchUpInside)
-        return refueling
-    }()
+    var refuelingButton: CustomButton!
+    var listButton: CustomButton!
     
     override func loadView() {
         super.loadView()
-        dataCalc = calculateAverageConsumption()
-        createLayaut()
+//        dataCalc = calculateAverageConsumption()
+//        createLayaut()
+        refuelingButton = CustomButton(backgroundColor: .rgb(red: 113, green: 134, blue: 255), cornerRadius: 20, title: "Refueling", titleColor: .white, closure: {
+            let refuelingVC = RefuelingViewController.init()
+            self.navigationController?.pushViewController(refuelingVC, animated: true)
+            self.navigationController?.navigationBar.isHidden = false
+        })
+        listButton = CustomButton(backgroundColor: .rgb(red: 113, green: 134, blue: 255), cornerRadius: 20, title: "Refueling list", titleColor: .white) {
+            let petrolVisitVC = PetrolStationVisitListViewController()
+            self.navigationController?.pushViewController(petrolVisitVC, animated: true)
+            self.navigationController?.navigationBar.isHidden = false
+        }
+        labelaverageConsumption.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left, text: "Средний расход: " + String(Double(round(10*dataCalc.0)/10)) + " л/100км")
+        labelPrice.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left, text: "Потрачено денег на топливо: " + String(dataCalc.1) + " BYN")
+        labelMileage.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left, text: "Общий пробег : " + String(dataCalc.2) + " Km")
+        labelCountRefueling.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left, text: "Всего заправок: " + String(dataCalc.3))
+        
         
     }
 
@@ -125,11 +92,10 @@ class GasolineViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         dataCalc = calculateAverageConsumption()
-        createLayaut()
-        
+        createLayout()
     }
     
-    func createLayaut(){
+    func createLayout(){
         view.addSubview(imageView)
         imageView.fillSuperView()
         imageView.image = UIImage(named: "i.jpg")
@@ -143,98 +109,56 @@ class GasolineViewController: UIViewController {
         labelInfo.textAlignment = .center
         labelInfo.heightAnchor.constraint(equalToConstant: 25).isActive = true
         
-        view.addSubview(rootView)
-        rootView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
-        rootView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        rootView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        rootView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        view.addSubview(stackViewWithButtoms)
+        stackViewWithButtoms.bottom(equalTo: view.bottomAnchor, constant: -100)
+        stackViewWithButtoms.leading(equalTo: view.leadingAnchor, constant: 40)
+        stackViewWithButtoms.trailing(equalTo: view.trailingAnchor, constant: -40)
+        stackViewWithButtoms.addArrangedSubview(refuelingButton)
+        refuelingButton.height(constant: 40)
+        stackViewWithButtoms.addArrangedSubview(listButton)
+        listButton.height(constant: 40)
         
-        rootView.addSubview(viewAverageConsumption)
-        viewAverageConsumption.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 10).isActive = true
-        viewAverageConsumption.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
-        viewAverageConsumption.trailingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: -10).isActive = true
-        viewAverageConsumption.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        viewAverageConsumption.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        view.addSubview(stackViewWithLabel)
+        stackViewWithLabel.bottom(equalTo: stackViewWithButtoms.topAnchor, constant: -110)
+        stackViewWithLabel.leading(equalTo: view.leadingAnchor, constant: 20)
+        stackViewWithLabel.trailing(equalTo: view.trailingAnchor, constant: -20)
+        stackViewWithLabel.addArrangedSubview(view1InStack)
+        stackViewWithLabel.addArrangedSubview(view2InStack)
         
-        viewAverageConsumption.addSubview(labelaverageConsumption)
-        labelaverageConsumption.centerXAnchor.constraint(equalTo: viewAverageConsumption.centerXAnchor).isActive = true
-        labelaverageConsumption.centerYAnchor.constraint(equalTo: viewAverageConsumption.centerYAnchor).isActive = true
-        labelaverageConsumption.leadingAnchor.constraint(equalTo: viewAverageConsumption.leadingAnchor, constant: 5).isActive = true
-        labelaverageConsumption.trailingAnchor.constraint(equalTo: viewAverageConsumption.trailingAnchor, constant: -5).isActive = true
-        labelaverageConsumption.textAlignment = .left
-        labelaverageConsumption.text = "Средний расход: " + String(Double(round(10*dataCalc.0)/10)) + " л/100км"
+        view1InStack.addSubview(labelaverageConsumption)
+        labelaverageConsumption.leading(equalTo: view1InStack.leadingAnchor)
+        labelaverageConsumption.trailing(equalTo: view1InStack.centerXAnchor, constant: -10)
+        labelaverageConsumption.top(equalTo: view1InStack.topAnchor)
+        labelaverageConsumption.height(constant: 100)
+        labelaverageConsumption.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        view1InStack.addSubview(labelPrice)
+        labelPrice.leading(equalTo: view1InStack.centerXAnchor, constant: 10)
+        labelPrice.trailing(equalTo: view1InStack.trailingAnchor)
+        labelPrice.top(equalTo: view1InStack.topAnchor)
+        labelPrice.height(constant: 100)
+        labelPrice.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
         
-        rootView.addSubview(viewPrice)
-        viewPrice.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 10).isActive = true
-        viewPrice.leadingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: 10).isActive = true
-        viewPrice.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
-        viewPrice.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        viewPrice.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        view2InStack.addSubview(labelMileage)
+        labelMileage.leading(equalTo: view2InStack.leadingAnchor)
+        labelMileage.trailing(equalTo: view2InStack.centerXAnchor, constant: -10)
+        labelMileage.top(equalTo: view2InStack.topAnchor)
+        labelMileage.height(constant: 100)
+        labelMileage.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        view2InStack.addSubview(labelCountRefueling)
+        labelCountRefueling.leading(equalTo: view2InStack.centerXAnchor, constant: 10)
+        labelCountRefueling.trailing(equalTo: view2InStack.trailingAnchor)
+        labelCountRefueling.top(equalTo: view2InStack.topAnchor)
+        labelCountRefueling.height(constant: 100)
+        labelCountRefueling.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
         
-        viewAverageConsumption.addSubview(labelPrice)
-        labelPrice.centerXAnchor.constraint(equalTo: viewPrice.centerXAnchor).isActive = true
-        labelPrice.centerYAnchor.constraint(equalTo: viewPrice.centerYAnchor).isActive = true
-        labelPrice.leadingAnchor.constraint(equalTo: viewPrice.leadingAnchor, constant: 5).isActive = true
-        labelPrice.trailingAnchor.constraint(equalTo: viewPrice.trailingAnchor, constant: -5).isActive = true
-        labelPrice.textAlignment = .left
-        labelPrice.text = "Потрачено денег на топливо: " + String(dataCalc.1) + " BYN"
-        
-        rootView.addSubview(viewMileage)
-        viewMileage.topAnchor.constraint(equalTo: viewPrice.bottomAnchor, constant: 10).isActive = true
-        viewMileage.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
-        viewMileage.trailingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: -10).isActive = true
-        viewMileage.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        viewMileage.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
-        
-        viewAverageConsumption.addSubview(labelMileage)
-        labelMileage.centerXAnchor.constraint(equalTo: viewMileage.centerXAnchor).isActive = true
-        labelMileage.centerYAnchor.constraint(equalTo: viewMileage.centerYAnchor).isActive = true
-        labelMileage.leadingAnchor.constraint(equalTo: viewMileage.leadingAnchor, constant: 5).isActive = true
-        labelMileage.trailingAnchor.constraint(equalTo: viewMileage.trailingAnchor, constant: -5).isActive = true
-        labelMileage.textAlignment = .left
-        labelMileage.text = "Общий пробег : " + String(dataCalc.2) + " Km"
-        
-        rootView.addSubview(viewCountRefueling)
-        viewCountRefueling.topAnchor.constraint(equalTo: viewPrice.bottomAnchor, constant: 10).isActive = true
-        viewCountRefueling.leadingAnchor.constraint(equalTo: rootView.centerXAnchor, constant: 10).isActive = true
-        viewCountRefueling.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
-        viewCountRefueling.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        viewCountRefueling.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
-        
-        viewAverageConsumption.addSubview(labelCountRefueling)
-        labelCountRefueling.centerXAnchor.constraint(equalTo: viewCountRefueling.centerXAnchor).isActive = true
-        labelCountRefueling.centerYAnchor.constraint(equalTo: viewCountRefueling.centerYAnchor).isActive = true
-        labelCountRefueling.leadingAnchor.constraint(equalTo: viewCountRefueling.leadingAnchor, constant: 5).isActive = true
-        labelCountRefueling.trailingAnchor.constraint(equalTo: viewCountRefueling.trailingAnchor, constant: -5).isActive = true
-        labelCountRefueling.textAlignment = .center
-        labelCountRefueling.text = "Всего заправок: " + String(dataCalc.3)
-        
-        rootView.addSubview(refuelingButton)
-        refuelingButton.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
-        refuelingButton.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
-        refuelingButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        refuelingButton.topAnchor.constraint(equalTo: viewMileage.bottomAnchor, constant: 20).isActive = true
-        
-        rootView.addSubview(testButton)
-        testButton.leadingAnchor.constraint(equalTo: refuelingButton.leadingAnchor).isActive = true
-        testButton.trailingAnchor.constraint(equalTo: refuelingButton.trailingAnchor).isActive = true
-        testButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        testButton.topAnchor.constraint(equalTo: refuelingButton.bottomAnchor, constant: 20).isActive = true
-    }
-    
-    @objc
-    func refuelingButtonTap(_: UIButton){
-        let refuelingVC = RefuelingViewController.init()
-        self.navigationController?.pushViewController(refuelingVC, animated: true)
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
-    @objc func testButtonTap(_: UIButton) {
-        let petrolVisitVC = PetrolStationVisitListViewController()
-        self.navigationController?.pushViewController(petrolVisitVC, animated: true)
-        self.navigationController?.navigationBar.isHidden = false
-    }
-    
 
-
+        
+        
+        
+        
+    }
+    
 }
+
+
+

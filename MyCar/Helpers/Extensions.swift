@@ -88,3 +88,14 @@ extension UIViewController {
         self.present(alert, animated: true)
     }
 }
+
+extension UILabel {
+    func createLableGasoline(textColor: UIColor, numberOfLines: Int, textAlignment: NSTextAlignment, text: String) {
+        activateConstraint()
+        self.numberOfLines = numberOfLines
+        self.textColor = textColor
+        self.textAlignment = textAlignment
+        self.text = text
+    }
+    
+}

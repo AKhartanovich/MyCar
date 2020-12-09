@@ -9,6 +9,14 @@
 import UIKit
 import CoreData
 
+protocol DataGasolineFromCoreData {
+    var dataFromCoreData: (Double,Double,Double,Int) {get}
+}
+
+struct DataCorteg: DataGasolineFromCoreData {
+    var dataFromCoreData: (Double, Double, Double, Int)
+}
+
 struct DataRefuling {
     var fullTank: Bool
     var literes: Double

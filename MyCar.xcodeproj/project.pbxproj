@@ -22,7 +22,7 @@
 		FA5B86B5256D316C00FFEC14 /* gasstation.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA5B86B4256D316C00FFEC14 /* gasstation.jpg */; };
 		FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86B8256D33C500FFEC14 /* DatePicker.swift */; };
 		FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA5B86DF256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld */; };
-		FA5FE1EF256F812E00DF1373 /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FE1EE256F812E00DF1373 /* Calculations.swift */; };
+		FA5FE1EF256F812E00DF1373 /* CalculationAverageRefueling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FE1EE256F812E00DF1373 /* CalculationAverageRefueling.swift */; };
 		FA5FE1F2256FD81200DF1373 /* RefuelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5FE1F1256FD81200DF1373 /* RefuelingViewController.swift */; };
 		FA5FE1F5256FD89D00DF1373 /* Gas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA5FE1F4256FD89D00DF1373 /* Gas.jpg */; };
 		FA6DF3B2256E7B420007A9AC /* PersonInfoClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */; };
@@ -38,6 +38,7 @@
 		FADBABB8257F7C3B009415B9 /* FirebaseMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABB7257F7C3B009415B9 /* FirebaseMethods.swift */; };
 		FADBABBE257FB057009415B9 /* CoreDataMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABBD257FB057009415B9 /* CoreDataMethods.swift */; };
 		FADBABC2257FB918009415B9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABC1257FB918009415B9 /* CustomTextField.swift */; };
+		FADBABDA2580C7B4009415B9 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABD92580C7B4009415B9 /* PaddingLabel.swift */; };
 		FAF3FDA8257508D00085CC5D /* PetrolStationVisitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */; };
 		FAF3FDB32577B0E30085CC5D /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB22577B0E30085CC5D /* homeIcon.png */; };
 		FAF3FDB62577B0F50085CC5D /* fuelIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB52577B0F50085CC5D /* fuelIcon.png */; };
@@ -63,7 +64,7 @@
 		FA5B86E0256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataMyCar.xcdatamodel; sourceTree = "<group>"; };
 		FA5FE1E6256EE13500DF1373 /* Refueling+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refueling+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		FA5FE1E7256EE13500DF1373 /* Refueling+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Refueling+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		FA5FE1EE256F812E00DF1373 /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
+		FA5FE1EE256F812E00DF1373 /* CalculationAverageRefueling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationAverageRefueling.swift; sourceTree = "<group>"; };
 		FA5FE1F1256FD81200DF1373 /* RefuelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelingViewController.swift; sourceTree = "<group>"; };
 		FA5FE1F4256FD89D00DF1373 /* Gas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Gas.jpg; sourceTree = "<group>"; };
 		FA6DF3AA256E79D00007A9AC /* Users+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -83,6 +84,7 @@
 		FADBABB7257F7C3B009415B9 /* FirebaseMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseMethods.swift; sourceTree = "<group>"; };
 		FADBABBD257FB057009415B9 /* CoreDataMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMethods.swift; sourceTree = "<group>"; };
 		FADBABC1257FB918009415B9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		FADBABD92580C7B4009415B9 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetrolStationVisitListViewController.swift; sourceTree = "<group>"; };
 		FAF3FDB22577B0E30085CC5D /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
 		FAF3FDB52577B0F50085CC5D /* fuelIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fuelIcon.png; sourceTree = "<group>"; };
@@ -127,6 +129,9 @@
 				FADBAB8A257F5F78009415B9 /* Extensions.swift */,
 				FADBAB8D257F72D8009415B9 /* CustomButton.swift */,
 				FADBABC1257FB918009415B9 /* CustomTextField.swift */,
+				FADBABD92580C7B4009415B9 /* PaddingLabel.swift */,
+				FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */,
+				FA5FE1EE256F812E00DF1373 /* CalculationAverageRefueling.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -155,15 +160,6 @@
 				FADBAB83257F4C05009415B9 /* MainTabBarViewController+NavigationsControllers */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		FA5B86AF256D26EC00FFEC14 /* InfoAboutPerson */ = {
-			isa = PBXGroup;
-			children = (
-				FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */,
-				FA5FE1EE256F812E00DF1373 /* Calculations.swift */,
-			);
-			path = InfoAboutPerson;
 			sourceTree = "<group>";
 		};
 		FA6DF357256E70E20007A9AC /* CoreDataClasses */ = {
@@ -203,7 +199,6 @@
 				FA6DF357256E70E20007A9AC /* CoreDataClasses */,
 				FA3F8BAF25527D01006F833A /* Media */,
 				FA3F8BAE25527CF7006F833A /* Helpers */,
-				FA5B86AF256D26EC00FFEC14 /* InfoAboutPerson */,
 				FA3F8BB825527D44006F833A /* ViewControllers */,
 			);
 			path = MyCar;
@@ -421,6 +416,7 @@
 				FA5B8699256D036500FFEC14 /* GasolineViewController.swift in Sources */,
 				FAD26B8325701FF1004000FC /* ScrollViewViewController.swift in Sources */,
 				FADBAB8E257F72D8009415B9 /* CustomButton.swift in Sources */,
+				FADBABDA2580C7B4009415B9 /* PaddingLabel.swift in Sources */,
 				FA3F8BB125527D27006F833A /* Utilities.swift in Sources */,
 				FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */,
 				FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */,
@@ -432,7 +428,7 @@
 				FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */,
 				FADBABB8257F7C3B009415B9 /* FirebaseMethods.swift in Sources */,
 				FA5FE1F2256FD81200DF1373 /* RefuelingViewController.swift in Sources */,
-				FA5FE1EF256F812E00DF1373 /* Calculations.swift in Sources */,
+				FA5FE1EF256F812E00DF1373 /* CalculationAverageRefueling.swift in Sources */,
 				FA5B86B9256D33C500FFEC14 /* DatePicker.swift in Sources */,
 				FA3F8BBF25527D60006F833A /* StartUpViewController.swift in Sources */,
 				FA6DF3B2256E7B420007A9AC /* PersonInfoClass.swift in Sources */,
