@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let StartUpNavigationController = UINavigationController()
         StartUpNavigationController.navigationBar.isHidden = true
-//        let startUpVC = StartUpViewController()
-        let startUpVC = TestViewController()
+        let startUpVC = StartUpViewController()
+//        let startUpVC = TestViewController()
         StartUpNavigationController.pushViewController(startUpVC, animated: false)
         window?.rootViewController = StartUpNavigationController
         window?.makeKeyAndVisible()
