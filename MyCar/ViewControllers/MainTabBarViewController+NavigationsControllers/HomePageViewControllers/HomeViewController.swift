@@ -11,7 +11,7 @@ import CoreData
 
 class HomeViewController: UIViewController {
     
-    var dataCalc: (Double,Double,Double,Int) = (0,0,0,0)
+    var dataCalc: DataCorteg = DataCorteg(dataFromCoreData: (0,0,0,0))
     
     let imageView: UIImageView = {
        let imageView = UIImageView()
@@ -68,13 +68,27 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-//        dataCalc = calculateAverageConsumption()
+        dataCalc = DataCorteg(dataFromCoreData: calculateAverageConsumption())
+        createLayout()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+        dataCalc = DataCorteg(dataFromCoreData: calculateAverageConsumption())
+        createLayout()
+    }
+    
+    func createLayout () {
         view.addSubview(imageView)
         imageView.fillSuperView()
         imageView.image = UIImage(named: "i.jpg")
-        print(UserDataManager.instance.UUID)
-
+//        print(UserDataManager.instance.UUID)
+        
         view.addSubview(rootView)
         rootView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         rootView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
@@ -86,21 +100,21 @@ class HomeViewController: UIViewController {
         labal1.leadingAnchor.constraint(equalTo: rootView.leadingAnchor, constant: 10).isActive = true
         labal1.trailingAnchor.constraint(equalTo: rootView.trailingAnchor, constant: -10).isActive = true
         labal1.textAlignment = .left
-        labal1.text = "Средний расход: " + String(Double(round(10*dataCalc.0)/10)) + " л/100км"
+        labal1.text = "Средний расход: " + String(Double(round(10*dataCalc.dataFromCoreData.0)/10)) + " л/100км"
         
         rootView.addSubview(labal2)
         labal2.topAnchor.constraint(equalTo: labal1.bottomAnchor, constant: 20).isActive = true
         labal2.leadingAnchor.constraint(equalTo: labal1.leadingAnchor).isActive = true
         labal2.trailingAnchor.constraint(equalTo: labal1.trailingAnchor, constant: -10).isActive = true
         labal2.textAlignment = .left
-        labal2.text = "Потрачено денег на топливо: " + String(dataCalc.1) + " BYN"
+        labal2.text = "Потрачено денег на топливо: " + String(dataCalc.dataFromCoreData.1) + " BYN"
         
         rootView.addSubview(labal3)
         labal3.topAnchor.constraint(equalTo: labal2.bottomAnchor, constant: 20).isActive = true
         labal3.leadingAnchor.constraint(equalTo: labal2.leadingAnchor).isActive = true
         labal3.trailingAnchor.constraint(equalTo: labal2.trailingAnchor, constant: -10).isActive = true
         labal3.textAlignment = .left
-        labal3.text = "Общий пробег : " + String(dataCalc.2) + " Km"
+        labal3.text = "Общий пробег : " + String(dataCalc.dataFromCoreData.2) + " Km"
         
         rootView.addSubview(test)
         test.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
@@ -111,19 +125,7 @@ class HomeViewController: UIViewController {
         test1.topAnchor.constraint(equalTo: test.bottomAnchor, constant: 20).isActive = true
         test1.leadingAnchor.constraint(equalTo: test.leadingAnchor).isActive = true
         test1.trailingAnchor.constraint(equalTo: test.trailingAnchor).isActive = true
-        
         test1.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.isHidden = true
-        dataCalc = calculateAverageConsumption()
     }
     
     @objc

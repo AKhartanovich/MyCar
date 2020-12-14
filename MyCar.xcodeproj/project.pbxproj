@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		85B8CD4E8A78A2F6FA4D8952 /* Pods_MyCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB6C6F95B95AB351EB58492D /* Pods_MyCar.framework */; };
+		FA38FBCC25827B4A00749112 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38FBCB25827B4A00749112 /* TestViewController.swift */; };
 		FA3F8BB125527D27006F833A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8BB025527D27006F833A /* Utilities.swift */; };
 		FA3F8BB525527D3A006F833A /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA3F8BB225527D39006F833A /* home.jpg */; };
 		FA3F8BB625527D3A006F833A /* loginWalper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA3F8BB325527D3A006F833A /* loginWalper.jpg */; };
@@ -48,6 +49,7 @@
 		43929E32343741C30A68EBC9 /* Pods-MyCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCar.debug.xcconfig"; path = "Target Support Files/Pods-MyCar/Pods-MyCar.debug.xcconfig"; sourceTree = "<group>"; };
 		EB6C6F95B95AB351EB58492D /* Pods_MyCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7291C5C057297DD63CF5CAA /* Pods-MyCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCar.release.xcconfig"; path = "Target Support Files/Pods-MyCar/Pods-MyCar.release.xcconfig"; sourceTree = "<group>"; };
+		FA38FBCB25827B4A00749112 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FA3F8BB025527D27006F833A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FA3F8BB225527D39006F833A /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
 		FA3F8BB325527D3A006F833A /* loginWalper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginWalper.jpg; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				FADBAB80257F4BA2009415B9 /* LoginViewControllers */,
 				FADBAB81257F4BC4009415B9 /* SignUpViewControllers */,
 				FADBAB83257F4C05009415B9 /* MainTabBarViewController+NavigationsControllers */,
+				FA38FBCB25827B4A00749112 /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				FA3F8BB125527D27006F833A /* Utilities.swift in Sources */,
 				FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */,
 				FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */,
+				FA38FBCC25827B4A00749112 /* TestViewController.swift in Sources */,
 				FADBAB8B257F5F78009415B9 /* Extensions.swift in Sources */,
 				FAF3FDA8257508D00085CC5D /* PetrolStationVisitListViewController.swift in Sources */,
 				FA3F8BBD25527D60006F833A /* LoginViewController.swift in Sources */,

@@ -90,7 +90,7 @@ extension UIViewController {
 }
 
 extension UILabel {
-    func createLableGasoline(textColor: UIColor, numberOfLines: Int, textAlignment: NSTextAlignment, text: String) {
+    func createLableGasoline(textColor: UIColor, numberOfLines: Int, textAlignment: NSTextAlignment, text: String = "") {
         activateConstraint()
         self.numberOfLines = numberOfLines
         self.textColor = textColor

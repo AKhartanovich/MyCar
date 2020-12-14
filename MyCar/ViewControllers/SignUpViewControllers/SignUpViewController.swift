@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import AuthenticationServices
 import CoreData
 
 class SignUpViewController: UIViewController {

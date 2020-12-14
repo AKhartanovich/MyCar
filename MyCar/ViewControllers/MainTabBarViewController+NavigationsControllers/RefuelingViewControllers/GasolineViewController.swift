@@ -12,7 +12,7 @@ import CoreData
 class GasolineViewController: UIViewController {
     
     let myColor = UIColor.rgb(red: 113, green: 134, blue: 255)
-    var dataCalc: (Double,Double,Double,Int) = (0,0,0,0)
+    var dataCalc: DataGasolineFromCoreData = DataCorteg(dataFromCoreData: (0,0,0,0))
     
     let stackViewWithLabel: UIStackView = {
         let stackView = UIStackView()
@@ -65,8 +65,6 @@ class GasolineViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-//        dataCalc = calculateAverageConsumption()
-//        createLayaut()
         refuelingButton = CustomButton(backgroundColor: .rgb(red: 113, green: 134, blue: 255), cornerRadius: 20, title: "Refueling", titleColor: .white, closure: {
             let refuelingVC = RefuelingViewController.init()
             self.navigationController?.pushViewController(refuelingVC, animated: true)
@@ -77,12 +75,11 @@ class GasolineViewController: UIViewController {
             self.navigationController?.pushViewController(petrolVisitVC, animated: true)
             self.navigationController?.navigationBar.isHidden = false
         }
-        labelaverageConsumption.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left, text: "Средний расход: " + String(Double(round(10*dataCalc.0)/10)) + " л/100км")
-        labelPrice.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left, text: "Потрачено денег на топливо: " + String(dataCalc.1) + " BYN")
-        labelMileage.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left, text: "Общий пробег : " + String(dataCalc.2) + " Km")
-        labelCountRefueling.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left, text: "Всего заправок: " + String(dataCalc.3))
-        
-        
+        labelaverageConsumption.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left)
+        labelPrice.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left)
+        labelMileage.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left)
+        labelCountRefueling.createLableGasoline(textColor: .white, numberOfLines: 4, textAlignment: .left)
+        createLayout()
     }
 
     override func viewDidLoad() {
@@ -91,14 +88,14 @@ class GasolineViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataCalc = calculateAverageConsumption()
+        dataCalc = DataCorteg(dataFromCoreData: calculateAverageConsumption())
         createLayout()
     }
     
     func createLayout(){
         view.addSubview(imageView)
         imageView.fillSuperView()
-        imageView.image = UIImage(named: "i.jpg")
+        imageView.image = UIImage(named: ".jpg")
         
         view.addSubview(labelInfo)
         labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
@@ -130,12 +127,14 @@ class GasolineViewController: UIViewController {
         labelaverageConsumption.trailing(equalTo: view1InStack.centerXAnchor, constant: -10)
         labelaverageConsumption.top(equalTo: view1InStack.topAnchor)
         labelaverageConsumption.height(constant: 100)
+        labelaverageConsumption.text = "Средний расход: " + String(Double(round(10*dataCalc.dataFromCoreData.0)/10)) + " л/100км"
         labelaverageConsumption.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
         view1InStack.addSubview(labelPrice)
         labelPrice.leading(equalTo: view1InStack.centerXAnchor, constant: 10)
         labelPrice.trailing(equalTo: view1InStack.trailingAnchor)
         labelPrice.top(equalTo: view1InStack.topAnchor)
         labelPrice.height(constant: 100)
+        labelPrice.text = "Потрачено денег на топливо: " + String(dataCalc.dataFromCoreData.1) + " BYN"
         labelPrice.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
         
         view2InStack.addSubview(labelMileage)
@@ -143,19 +142,15 @@ class GasolineViewController: UIViewController {
         labelMileage.trailing(equalTo: view2InStack.centerXAnchor, constant: -10)
         labelMileage.top(equalTo: view2InStack.topAnchor)
         labelMileage.height(constant: 100)
+        labelMileage.text = "Общий пробег : " + String(dataCalc.dataFromCoreData.2) + " Km"
         labelMileage.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
         view2InStack.addSubview(labelCountRefueling)
         labelCountRefueling.leading(equalTo: view2InStack.centerXAnchor, constant: 10)
         labelCountRefueling.trailing(equalTo: view2InStack.trailingAnchor)
         labelCountRefueling.top(equalTo: view2InStack.topAnchor)
         labelCountRefueling.height(constant: 100)
+        labelCountRefueling.text = "Всего заправок: " + String(dataCalc.dataFromCoreData.3)
         labelCountRefueling.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
-        
-
-        
-        
-        
-        
     }
     
 }
