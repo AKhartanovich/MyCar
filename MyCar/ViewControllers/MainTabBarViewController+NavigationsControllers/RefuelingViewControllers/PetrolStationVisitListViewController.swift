@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class PetrolStationVisitListViewController: UIViewController, UITextFieldDelegate{
+class PetrolStationVisitListViewController: UIViewController {
     var refueling: DataRefuling = DataRefuling(fullTank: false, literes: 0, price: 0, totalMileage: 0)
     var refuelingArray: Array<DataRefuling> = [] {
         didSet {
@@ -41,7 +41,7 @@ class PetrolStationVisitListViewController: UIViewController, UITextFieldDelegat
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return}
         let context = appDelegate.persistentContainer.viewContext
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Refueling")
-        request.predicate = NSPredicate(format: "ANY users.uuid = %@", Person.instance.UUID)
+        request.predicate = NSPredicate(format: "ANY users.uuid = %@", UserDataManager.instance.UUID)
         do {
             if let result = try context.fetch(request) as? [Refueling] {
                 for data in result as [NSManagedObject] {
@@ -112,7 +112,7 @@ extension PetrolStationVisitListViewController: UITableViewDataSource {
     }
 }
 
-class CustomCell: UITableViewCell, UITextFieldDelegate {
+class CustomCell: UITableViewCell {
     
     var fullTantLabel: UILabel = UILabel()
     var literesLabel: UILabel = UILabel()

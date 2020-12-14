@@ -10,13 +10,13 @@ import UIKit
 
 
 ///Синнгтон для хранения данных пользователя и доступа к ним из всех классов
-class Person {
+class UserDataManager {
     var UUID: String
     var email: String
     var name: String
     var surname: String
     
-    static let instance = Person()
+    static let instance = UserDataManager()
     
     private init() {
         self.UUID = ""
@@ -26,9 +26,9 @@ class Person {
     }
     
     static func createWith(userName: String, UUID: String, name: String, surname: String){
-        Person.instance.UUID = UUID
-        Person.instance.email = userName
-        Person.instance.name = name
-        Person.instance.surname = surname
+        UserDataManager.instance.UUID = UUID
+        UserDataManager.instance.email = userName
+        UserDataManager.instance.name = name
+        UserDataManager.instance.surname = surname
     }
 }

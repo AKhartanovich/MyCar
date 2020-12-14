@@ -9,6 +9,14 @@
 import UIKit
 import CoreData
 
+protocol DataGasolineFromCoreData {
+    var dataFromCoreData: (Double,Double,Double,Int) {get}
+}
+
+struct DataCorteg: DataGasolineFromCoreData {
+    var dataFromCoreData: (Double, Double, Double, Int)
+}
+
 struct DataRefuling {
     var fullTank: Bool
     var literes: Double
@@ -26,7 +34,7 @@ func calculateAverageConsumption() -> (Double,Double,Double,Int) {
     var myRefueling: DataRefuling
     
     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Refueling")
-    request.predicate = NSPredicate(format: "ANY users.uuid = %@", Person.instance.UUID)
+    request.predicate = NSPredicate(format: "ANY users.uuid = %@", UserDataManager.instance.UUID)
     do {
         if let result = try context.fetch(request) as? [Refueling] {
             for data in result as [NSManagedObject] {

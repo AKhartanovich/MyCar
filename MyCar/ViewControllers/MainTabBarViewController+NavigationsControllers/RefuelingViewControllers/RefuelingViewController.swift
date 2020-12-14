@@ -11,6 +11,8 @@ import CoreData
 
 class RefuelingViewController: UIViewController, UITextFieldDelegate {
     
+    let myColor = UIColor.rgb(red: 113, green: 134, blue: 255)
+    
     var switchBool: Bool = false
     
     let imageView: UIImageView = {
@@ -114,7 +116,8 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         countOfLitresTextField.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
         countOfLitresTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         countOfLitresTextField.textColor = .white
-        createCustomTextField(countOfLitresTextField)
+        countOfLitresTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        countOfLitresTextField.indent(size: 20)
         
         rootView.addSubview(totalMileageTextField)
         totalMileageTextField.topAnchor.constraint(equalTo: countOfLitresTextField.bottomAnchor, constant: 20).isActive = true
@@ -122,7 +125,8 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         totalMileageTextField.trailingAnchor.constraint(equalTo: countOfLitresTextField.trailingAnchor).isActive = true
         totalMileageTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         totalMileageTextField.textColor = .white
-        createCustomTextField(totalMileageTextField)
+        totalMileageTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        totalMileageTextField.indent(size: 20)
         
         rootView.addSubview(priceTextField)
         priceTextField.topAnchor.constraint(equalTo: totalMileageTextField.bottomAnchor, constant: 20).isActive = true
@@ -130,7 +134,8 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         priceTextField.trailingAnchor.constraint(equalTo: totalMileageTextField.trailingAnchor).isActive = true
         priceTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         priceTextField.textColor = .white
-        createCustomTextField(priceTextField)
+        priceTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        priceTextField.indent(size: 20)
         
         rootView.addSubview(fullTankSwitch)
         fullTankSwitch.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 20).isActive = true
@@ -200,10 +205,10 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
             
             //Здесь создаются экземпляры классов кордаты
             let person = Users(entity: entityUsers, insertInto: context)
-            person.email = Person.instance.email
-            person.name = Person.instance.name
-            person.surname = Person.instance.surname
-            person.uuid = Person.instance.UUID
+            person.email = UserDataManager.instance.email
+            person.name = UserDataManager.instance.name
+            person.surname = UserDataManager.instance.surname
+            person.uuid = UserDataManager.instance.UUID
 
             let refueling = Refueling(entity: entityRefueling, insertInto: context)
             refueling.fullTank = switchBool
