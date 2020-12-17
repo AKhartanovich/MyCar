@@ -3,11 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		85B8CD4E8A78A2F6FA4D8952 /* Pods_MyCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB6C6F95B95AB351EB58492D /* Pods_MyCar.framework */; };
+		FA0846162587E4610073E7AF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA0846152587E4610073E7AF /* SnapKit */; };
+		FA084619258887500073E7AF /* CustomGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA084618258887500073E7AF /* CustomGesture.swift */; };
+		FA08461C2588A6CC0073E7AF /* car-wash.png in Resources */ = {isa = PBXBuildFile; fileRef = FA08461B2588A6CC0073E7AF /* car-wash.png */; };
+		FA0846202588A7150073E7AF /* CarWashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08461F2588A7150073E7AF /* CarWashViewController.swift */; };
 		FA38FBCC25827B4A00749112 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA38FBCB25827B4A00749112 /* TestViewController.swift */; };
 		FA3F8BB125527D27006F833A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3F8BB025527D27006F833A /* Utilities.swift */; };
 		FA3F8BB525527D3A006F833A /* home.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA3F8BB225527D39006F833A /* home.jpg */; };
@@ -49,6 +53,9 @@
 		43929E32343741C30A68EBC9 /* Pods-MyCar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCar.debug.xcconfig"; path = "Target Support Files/Pods-MyCar/Pods-MyCar.debug.xcconfig"; sourceTree = "<group>"; };
 		EB6C6F95B95AB351EB58492D /* Pods_MyCar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7291C5C057297DD63CF5CAA /* Pods-MyCar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCar.release.xcconfig"; path = "Target Support Files/Pods-MyCar/Pods-MyCar.release.xcconfig"; sourceTree = "<group>"; };
+		FA084618258887500073E7AF /* CustomGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGesture.swift; sourceTree = "<group>"; };
+		FA08461B2588A6CC0073E7AF /* car-wash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "car-wash.png"; sourceTree = "<group>"; };
+		FA08461F2588A7150073E7AF /* CarWashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashViewController.swift; sourceTree = "<group>"; };
 		FA38FBCB25827B4A00749112 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		FA3F8BB025527D27006F833A /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FA3F8BB225527D39006F833A /* home.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home.jpg; sourceTree = "<group>"; };
@@ -98,6 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85B8CD4E8A78A2F6FA4D8952 /* Pods_MyCar.framework in Frameworks */,
+				FA0846162587E4610073E7AF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +129,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FA08461E2588A6D30073E7AF /* CarWashViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA08461F2588A7150073E7AF /* CarWashViewController.swift */,
+			);
+			path = CarWashViewControllers;
+			sourceTree = "<group>";
+		};
 		FA3F8BAE25527CF7006F833A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +150,7 @@
 				FADBABD92580C7B4009415B9 /* PaddingLabel.swift */,
 				FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */,
 				FA5FE1EE256F812E00DF1373 /* CalculationAverageRefueling.swift */,
+				FA084618258887500073E7AF /* CustomGesture.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -141,6 +158,7 @@
 		FA3F8BAF25527D01006F833A /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				FA08461B2588A6CC0073E7AF /* car-wash.png */,
 				FAD26B7F25701F30004000FC /* i.jpg */,
 				FA5FE1F4256FD89D00DF1373 /* Gas.jpg */,
 				FA5B86B4256D316C00FFEC14 /* gasstation.jpg */,
@@ -249,6 +267,7 @@
 			children = (
 				FA3F8BBA25527D60006F833A /* RootTabBarController.swift */,
 				FADBAB84257F4C5A009415B9 /* HomePageViewControllers */,
+				FA08461E2588A6D30073E7AF /* CarWashViewControllers */,
 				FADBAB85257F4C87009415B9 /* RefuelingViewControllers */,
 			);
 			path = "MainTabBarViewController+NavigationsControllers";
@@ -302,12 +321,16 @@
 				FAD754E825517BDA000CA1C6 /* Frameworks */,
 				FAD754E925517BDA000CA1C6 /* Resources */,
 				1C4BFA210C740D4708D47512 /* [CP] Embed Pods Frameworks */,
+				FA0845A72587DE1E0073E7AF /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = MyCar;
+			packageProductDependencies = (
+				FA0846152587E4610073E7AF /* SnapKit */,
+			);
 			productName = MyCar;
 			productReference = FAD754EB25517BDA000CA1C6 /* MyCar.app */;
 			productType = "com.apple.product-type.application";
@@ -336,6 +359,9 @@
 				Base,
 			);
 			mainGroup = FAD754E225517BDA000CA1C6;
+			packageReferences = (
+				FA0846142587E4610073E7AF /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = FAD754EC25517BDA000CA1C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -351,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3F8BB525527D3A006F833A /* home.jpg in Resources */,
+				FA08461C2588A6CC0073E7AF /* car-wash.png in Resources */,
 				FAD26B8025701F30004000FC /* i.jpg in Resources */,
 				FA3F8BB625527D3A006F833A /* loginWalper.jpg in Resources */,
 				FA5FE1F5256FD89D00DF1373 /* Gas.jpg in Resources */,
@@ -406,6 +433,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FA0845A72587DE1E0073E7AF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -422,6 +466,7 @@
 				FADBABDA2580C7B4009415B9 /* PaddingLabel.swift in Sources */,
 				FA3F8BB125527D27006F833A /* Utilities.swift in Sources */,
 				FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */,
+				FA084619258887500073E7AF /* CustomGesture.swift in Sources */,
 				FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */,
 				FA38FBCC25827B4A00749112 /* TestViewController.swift in Sources */,
 				FADBAB8B257F5F78009415B9 /* Extensions.swift in Sources */,
@@ -430,6 +475,7 @@
 				FADBABC2257FB918009415B9 /* CustomTextField.swift in Sources */,
 				FADBAB4E257E8B32009415B9 /* CollectionViewController.swift in Sources */,
 				FAD754F125517BDA000CA1C6 /* SceneDelegate.swift in Sources */,
+				FA0846202588A7150073E7AF /* CarWashViewController.swift in Sources */,
 				FADBABB8257F7C3B009415B9 /* FirebaseMethods.swift in Sources */,
 				FA5FE1F2256FD81200DF1373 /* RefuelingViewController.swift in Sources */,
 				FA5FE1EF256F812E00DF1373 /* CalculationAverageRefueling.swift in Sources */,
@@ -630,6 +676,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA0846142587E4610073E7AF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA0846152587E4610073E7AF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA0846142587E4610073E7AF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FA5B86DF256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld */ = {

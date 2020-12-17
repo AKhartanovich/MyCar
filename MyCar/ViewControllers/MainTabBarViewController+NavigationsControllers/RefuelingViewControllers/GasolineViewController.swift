@@ -55,6 +55,7 @@ class GasolineViewController: UIViewController {
         view.activateConstraint()
         return view
     }()
+    
     let labelaverageConsumption: PaddingLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
     let labelPrice: PaddingLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
     let labelMileage: PaddingLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
@@ -84,6 +85,8 @@ class GasolineViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.moveViewDownUp()
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,7 +98,7 @@ class GasolineViewController: UIViewController {
     func createLayout(){
         view.addSubview(imageView)
         imageView.fillSuperView()
-        imageView.image = UIImage(named: ".jpg")
+        imageView.image = UIImage(named: "i.jpg")
         
         view.addSubview(labelInfo)
         labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true

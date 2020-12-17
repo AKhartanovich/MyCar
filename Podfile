@@ -6,8 +6,9 @@ target 'MyCar' do
   use_frameworks!
 
   # Pods for MyCar
-	pod 'Firebase/Analytics'
+#	pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
-pod 'Firebase/Firestore'
+# pod 'Firebase/Firestore'
+# pod 'Swiftstraints'
 
 end

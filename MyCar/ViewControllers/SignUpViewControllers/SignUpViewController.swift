@@ -73,6 +73,8 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        self.moveViewDownUp()
     }
     func createEmailTextField (){
         emailTextField = CustomTextField(placeHolderColor: .white, placeholderText: "Email:", text: "khartanovichao@gmail.com", textColor: .white, indentSize: 20)
