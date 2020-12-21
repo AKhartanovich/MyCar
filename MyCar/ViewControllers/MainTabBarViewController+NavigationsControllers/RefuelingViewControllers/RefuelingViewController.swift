@@ -170,7 +170,6 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         countOfLitresTextField.delegate = self
         totalMileageTextField.delegate = self
         priceTextField.delegate = self
-        
     }
     
     
