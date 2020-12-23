@@ -57,8 +57,9 @@ class LoginViewController: UIViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.moveViewDownUp()
+        self.hideKeyboardWhenTappedAround()
     }
-    
     func createSignUpButton() {
         signUpButton = CustomButton(title: "Don`t have an account? Sign up", titleColor: .white, closure: {
             if let viewControllers = self.navigationController?.viewControllers {

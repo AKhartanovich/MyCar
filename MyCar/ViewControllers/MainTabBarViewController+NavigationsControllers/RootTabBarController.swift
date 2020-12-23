@@ -29,6 +29,17 @@ class RootTabBarController: UITabBarController {
         homeNavigationController.tabBarItem.image = UIImage.init(named: "homeIcon.png")
         viewControllers = [homeNavigationController]
         
+        let carWashVC = CarWashViewController()
+        let carWashNC = UINavigationController(rootViewController: carWashVC)
+        carWashNC.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        carWashNC.navigationBar.shadowImage = UIImage()
+        carWashNC.navigationBar.isTranslucent = true
+        carWashNC.view.backgroundColor = UIColor.clear
+        carWashNC.navigationBar.isHidden = false
+        carWashNC.title = "Car wash"
+        carWashNC.tabBarItem.image = UIImage.init(named: "car-wash.png")
+        self.viewControllers?.append(carWashNC)
+        
         let gasolineViewController = GasolineViewController()
         let gasolineNavgitaionController = UINavigationController(rootViewController: gasolineViewController)
         gasolineNavgitaionController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -38,9 +49,7 @@ class RootTabBarController: UITabBarController {
         gasolineNavgitaionController.navigationBar.isHidden = false
         gasolineNavgitaionController.title = "Refueling"
         gasolineNavgitaionController.tabBarItem.image = UIImage.init(named: "fuelIcon.png")
-        var array = self.viewControllers
-        array?.append(gasolineNavgitaionController)
-        self.viewControllers = array
+        self.viewControllers?.append(gasolineNavgitaionController)
 
     }
     

@@ -105,7 +105,7 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         labelInfo.textAlignment = .center
         
         view.addSubview(rootView)
-        rootView.topAnchor.constraint(equalTo: view.topAnchor, constant: 160).isActive = true
+        rootView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
         rootView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
         rootView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         rootView.heightAnchor.constraint(equalToConstant: 500).isActive = true
@@ -165,8 +165,11 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        self.moveViewDownUp()
         countOfLitresTextField.delegate = self
         totalMileageTextField.delegate = self
+        priceTextField.delegate = self
     }
     
     
@@ -228,7 +231,6 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
             priceTextField.text = ""
         }
     
-    
     //функция запрещает ввод символов в текстфилд
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //For numers
@@ -248,5 +250,4 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
             switchBool = false
         }
     }
-
 }
