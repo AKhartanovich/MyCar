@@ -147,6 +147,8 @@ class GasolineViewController: UIViewController {
         labelMileage.height(constant: 100)
         labelMileage.text = "Общий пробег : " + String(dataCalc.dataFromCoreData.2) + " Km"
         labelMileage.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        
+        
         view2InStack.addSubview(labelCountRefueling)
         labelCountRefueling.leading(equalTo: view2InStack.centerXAnchor, constant: 10)
         labelCountRefueling.trailing(equalTo: view2InStack.trailingAnchor)

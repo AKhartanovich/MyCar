@@ -19,17 +19,29 @@ class CarWashViewController: UIViewController {
         return stackView
     }()
     
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
          imageView.activateConstraint()
          return imageView
     }()
     
-    
+    override func loadView() {
+        super.loadView()
+        createLayaot()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
+        
+    }
+    
+    func createLayaot(){
+        view.addSubview(imageView)
+        imageView.fillSuperView()
+        imageView.image = UIImage(named: "i.jpg")
+        
         
     }
     

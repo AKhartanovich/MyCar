@@ -44,6 +44,7 @@
 		FADBABBE257FB057009415B9 /* CoreDataMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABBD257FB057009415B9 /* CoreDataMethods.swift */; };
 		FADBABC2257FB918009415B9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABC1257FB918009415B9 /* CustomTextField.swift */; };
 		FADBABDA2580C7B4009415B9 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABD92580C7B4009415B9 /* PaddingLabel.swift */; };
+		FAE22BFA25910EBF00CA5FEE /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22BF925910EBF00CA5FEE /* NetworkLayer.swift */; };
 		FAF3FDA8257508D00085CC5D /* PetrolStationVisitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */; };
 		FAF3FDB32577B0E30085CC5D /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB22577B0E30085CC5D /* homeIcon.png */; };
 		FAF3FDB62577B0F50085CC5D /* fuelIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB52577B0F50085CC5D /* fuelIcon.png */; };
@@ -94,6 +95,7 @@
 		FADBABBD257FB057009415B9 /* CoreDataMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMethods.swift; sourceTree = "<group>"; };
 		FADBABC1257FB918009415B9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FADBABD92580C7B4009415B9 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		FAE22BF925910EBF00CA5FEE /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetrolStationVisitListViewController.swift; sourceTree = "<group>"; };
 		FAF3FDB22577B0E30085CC5D /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
 		FAF3FDB52577B0F50085CC5D /* fuelIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fuelIcon.png; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */,
 				FA5FE1EE256F812E00DF1373 /* CalculationAverageRefueling.swift */,
 				FA084618258887500073E7AF /* CustomGesture.swift */,
+				FAE22BF925910EBF00CA5FEE /* NetworkLayer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				FADBABDA2580C7B4009415B9 /* PaddingLabel.swift in Sources */,
 				FA3F8BB125527D27006F833A /* Utilities.swift in Sources */,
 				FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */,
+				FAE22BFA25910EBF00CA5FEE /* NetworkLayer.swift in Sources */,
 				FA084619258887500073E7AF /* CustomGesture.swift in Sources */,
 				FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */,
 				FA38FBCC25827B4A00749112 /* TestViewController.swift in Sources */,

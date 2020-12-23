@@ -21,11 +21,26 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         return imageView
     }()
     
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.activateConstraint()
+        stackView.distribution = .fill
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        return stackView
+    }()
+    
     let labelInfo: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 4
         return label
+    }()
+    
+    let tankView: UIView = {
+       let tankView = UIView()
+        tankView.translatesAutoresizingMaskIntoConstraints = false
+        return tankView
     }()
     
     let rootView: UIView = {
@@ -96,6 +111,45 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         imageView.fillSuperView()
         imageView.image = UIImage(named: "i.jpg")
         
+        tankView.addSubview(fullTankSwitch)
+        fullTankSwitch.top(equalTo: tankView.topAnchor)
+        fullTankSwitch.bottom(equalTo: tankView.bottomAnchor)
+        fullTankSwitch.leading(equalTo: tankView.leadingAnchor)
+        tankView.addSubview(fulTankLable)
+        fulTankLable.top(equalTo: fullTankSwitch.topAnchor)
+        fulTankLable.leading(equalTo: fullTankSwitch.trailingAnchor)
+        fulTankLable.trailing(equalTo: tankView.trailingAnchor)
+        
+        view.addSubview(stackView)
+        stackView.bottom(equalTo: view.bottomAnchor, constant: -100)
+        stackView.leading(equalTo: view.leadingAnchor, constant: 10)
+        stackView.trailing(equalTo: view.trailingAnchor, constant: -10)
+        stackView.addArrangedSubview(countOfLitresTextField)
+        countOfLitresTextField.height(constant: 40)
+        countOfLitresTextField.textColor = .white
+        countOfLitresTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        countOfLitresTextField.indent(size: 20)
+        stackView.addArrangedSubview(totalMileageTextField)
+        totalMileageTextField.height(constant: 40)
+        totalMileageTextField.textColor = .white
+        totalMileageTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        totalMileageTextField.indent(size: 20)
+        stackView.addArrangedSubview(priceTextField)
+        priceTextField.height(constant: 40)
+        priceTextField.textColor = .white
+        priceTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
+        priceTextField.indent(size: 20)
+        stackView.addArrangedSubview(tankView)
+        fullTankSwitch.onTintColor = UIColor.rgb(red: 113, green: 134, blue: 255)
+        fullTankSwitch.addTarget(self, action: #selector(switchStateDidChange(_:)), for: .valueChanged)
+        fulTankLable.text = "Full tank?"
+        fulTankLable.textColor = .white
+        stackView.addArrangedSubview(refuelingButton)
+        refuelingButton.height(constant: 40)
+        stackView.addArrangedSubview(backButton)
+        backButton.height(constant: 40)
+        
+        
         view.addSubview(labelInfo)
         labelInfo.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
         labelInfo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -104,63 +158,6 @@ class RefuelingViewController: UIViewController, UITextFieldDelegate {
         labelInfo.font = UIFont.systemFont(ofSize: 20.0)
         labelInfo.textAlignment = .center
         
-        view.addSubview(rootView)
-        rootView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40).isActive = true
-        rootView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        rootView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        rootView.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        
-        rootView.addSubview(countOfLitresTextField)
-        countOfLitresTextField.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 10).isActive = true
-        countOfLitresTextField.leadingAnchor.constraint(equalTo: rootView.leadingAnchor).isActive = true
-        countOfLitresTextField.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
-        countOfLitresTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        countOfLitresTextField.textColor = .white
-        countOfLitresTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
-        countOfLitresTextField.indent(size: 20)
-        
-        rootView.addSubview(totalMileageTextField)
-        totalMileageTextField.topAnchor.constraint(equalTo: countOfLitresTextField.bottomAnchor, constant: 20).isActive = true
-        totalMileageTextField.leadingAnchor.constraint(equalTo: countOfLitresTextField.leadingAnchor).isActive = true
-        totalMileageTextField.trailingAnchor.constraint(equalTo: countOfLitresTextField.trailingAnchor).isActive = true
-        totalMileageTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        totalMileageTextField.textColor = .white
-        totalMileageTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
-        totalMileageTextField.indent(size: 20)
-        
-        rootView.addSubview(priceTextField)
-        priceTextField.topAnchor.constraint(equalTo: totalMileageTextField.bottomAnchor, constant: 20).isActive = true
-        priceTextField.leadingAnchor.constraint(equalTo: totalMileageTextField.leadingAnchor).isActive = true
-        priceTextField.trailingAnchor.constraint(equalTo: totalMileageTextField.trailingAnchor).isActive = true
-        priceTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        priceTextField.textColor = .white
-        priceTextField.createCustomViewWith(borderWidth: 1.3, borderColor: myColor.cgColor, cornerRadius: 20)
-        priceTextField.indent(size: 20)
-        
-        rootView.addSubview(fullTankSwitch)
-        fullTankSwitch.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 20).isActive = true
-        fullTankSwitch.leadingAnchor.constraint(equalTo: priceTextField.leadingAnchor).isActive = true
-        fullTankSwitch.onTintColor = UIColor.rgb(red: 113, green: 134, blue: 255)
-        fullTankSwitch.addTarget(self, action: #selector(switchStateDidChange(_:)), for: .valueChanged)
-        
-        rootView.addSubview(fulTankLable)
-        fulTankLable.topAnchor.constraint(equalTo: fullTankSwitch.topAnchor).isActive = true
-        fulTankLable.leadingAnchor.constraint(equalTo: fullTankSwitch.trailingAnchor, constant: 20).isActive = true
-        fulTankLable.text = "Full tank?"
-        fulTankLable.textColor = .white
-        fulTankLable.trailingAnchor.constraint(equalTo: rootView.trailingAnchor).isActive = true
-        
-        rootView.addSubview(refuelingButton)
-        refuelingButton.leadingAnchor.constraint(equalTo: priceTextField.leadingAnchor).isActive = true
-        refuelingButton.trailingAnchor.constraint(equalTo: priceTextField.trailingAnchor).isActive = true
-        refuelingButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        refuelingButton.topAnchor.constraint(equalTo: fulTankLable.bottomAnchor, constant: 20).isActive = true
-        
-        rootView.addSubview(backButton)
-        backButton.leadingAnchor.constraint(equalTo: refuelingButton.leadingAnchor).isActive = true
-        backButton.trailingAnchor.constraint(equalTo: refuelingButton.trailingAnchor).isActive = true
-        backButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        backButton.topAnchor.constraint(equalTo: refuelingButton.bottomAnchor, constant: 20).isActive = true
     }
     
     override func viewDidLoad() {

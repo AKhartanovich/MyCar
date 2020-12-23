@@ -34,6 +34,31 @@ class StartUpViewController: UIViewController {
         stackView.addArrangedSubview(signUpButton)
         loginButton.height(constant: 40)
         
+        struct User: Codable {
+            var id: Int
+            var name : String
+            var login: String
+            var email: String
+            
+            enum CodingCase: String, CodingKey {
+                case id, name
+                case login = "username"
+            }
+        }
+        
+//        NetworkLayer.shared.getUsers()
+//        NetworkLayer.shared.getUsers2(pathComponent: "users", httpMethod: "GET")
+//        NetworkLayer.shared.getUsers(pathComponent: "users", httpMethod: "GET") { (data, error) in
+//            guard let data = data else {return}
+//
+//            let users = try? JSONDecoder().decode([User].self, from: data)
+//            print(users?.first?.name)
+//        }
+//        NetworkLayer1.shared.getInfo()
+        NetworkLayer.shared.getUsers(pathComponent: "/api/0.3/?callback=?&cmd=getModel&model=11459", httpMethod: "GET") { (data, error) in
+            guard let data = data else {return}
+            print(String(data: data, encoding: .utf8))
+        }
     }
 
     override func viewDidLoad() {
