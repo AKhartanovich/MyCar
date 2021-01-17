@@ -18,7 +18,6 @@ class PetrolStationVisitListViewController: UIViewController {
     }
     let tableView = UITableView.init(frame: .zero, style: UITableView.Style.plain)
     let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(backAction(_:)))
-      
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,6 @@ class PetrolStationVisitListViewController: UIViewController {
         initTableView()
         getFuelingWithEmployee()
         navigationController?.navigationBar.topItem?.leftBarButtonItem = newBackButton
-        
     }
     
     
@@ -164,3 +162,8 @@ class CustomCell: UITableViewCell {
 }
 
 
+
+
+//DispatchQueue.main.async {
+//    <#code#>
+//}

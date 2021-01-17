@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		85B8CD4E8A78A2F6FA4D8952 /* Pods_MyCar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB6C6F95B95AB351EB58492D /* Pods_MyCar.framework */; };
-		FA0846162587E4610073E7AF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA0846152587E4610073E7AF /* SnapKit */; };
 		FA084619258887500073E7AF /* CustomGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA084618258887500073E7AF /* CustomGesture.swift */; };
 		FA08461C2588A6CC0073E7AF /* car-wash.png in Resources */ = {isa = PBXBuildFile; fileRef = FA08461B2588A6CC0073E7AF /* car-wash.png */; };
 		FA0846202588A7150073E7AF /* CarWashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA08461F2588A7150073E7AF /* CarWashViewController.swift */; };
@@ -44,6 +43,7 @@
 		FADBABBE257FB057009415B9 /* CoreDataMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABBD257FB057009415B9 /* CoreDataMethods.swift */; };
 		FADBABC2257FB918009415B9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABC1257FB918009415B9 /* CustomTextField.swift */; };
 		FADBABDA2580C7B4009415B9 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADBABD92580C7B4009415B9 /* PaddingLabel.swift */; };
+		FAE22BFA25910EBF00CA5FEE /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE22BF925910EBF00CA5FEE /* NetworkLayer.swift */; };
 		FAF3FDA8257508D00085CC5D /* PetrolStationVisitListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */; };
 		FAF3FDB32577B0E30085CC5D /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB22577B0E30085CC5D /* homeIcon.png */; };
 		FAF3FDB62577B0F50085CC5D /* fuelIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF3FDB52577B0F50085CC5D /* fuelIcon.png */; };
@@ -94,6 +94,7 @@
 		FADBABBD257FB057009415B9 /* CoreDataMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMethods.swift; sourceTree = "<group>"; };
 		FADBABC1257FB918009415B9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FADBABD92580C7B4009415B9 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		FAE22BF925910EBF00CA5FEE /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		FAF3FDA7257508D00085CC5D /* PetrolStationVisitListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetrolStationVisitListViewController.swift; sourceTree = "<group>"; };
 		FAF3FDB22577B0E30085CC5D /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
 		FAF3FDB52577B0F50085CC5D /* fuelIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fuelIcon.png; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				85B8CD4E8A78A2F6FA4D8952 /* Pods_MyCar.framework in Frameworks */,
-				FA0846162587E4610073E7AF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +151,7 @@
 				FA6DF3B1256E7B420007A9AC /* PersonInfoClass.swift */,
 				FA5FE1EE256F812E00DF1373 /* CalculationAverageRefueling.swift */,
 				FA084618258887500073E7AF /* CustomGesture.swift */,
+				FAE22BF925910EBF00CA5FEE /* NetworkLayer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -329,7 +330,6 @@
 			);
 			name = MyCar;
 			packageProductDependencies = (
-				FA0846152587E4610073E7AF /* SnapKit */,
 			);
 			productName = MyCar;
 			productReference = FAD754EB25517BDA000CA1C6 /* MyCar.app */;
@@ -342,7 +342,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = khartanovichao;
 				TargetAttributes = {
 					FAD754EA25517BDA000CA1C6 = {
@@ -360,7 +360,6 @@
 			);
 			mainGroup = FAD754E225517BDA000CA1C6;
 			packageReferences = (
-				FA0846142587E4610073E7AF /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = FAD754EC25517BDA000CA1C6 /* Products */;
 			projectDirPath = "";
@@ -466,6 +465,7 @@
 				FADBABDA2580C7B4009415B9 /* PaddingLabel.swift in Sources */,
 				FA3F8BB125527D27006F833A /* Utilities.swift in Sources */,
 				FA5B868F256CFEBD00FFEC14 /* HomeViewController.swift in Sources */,
+				FAE22BFA25910EBF00CA5FEE /* NetworkLayer.swift in Sources */,
 				FA084619258887500073E7AF /* CustomGesture.swift in Sources */,
 				FA5B86E1256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld in Sources */,
 				FA38FBCC25827B4A00749112 /* TestViewController.swift in Sources */,
@@ -526,6 +526,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -586,6 +587,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -676,25 +678,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		FA0846142587E4610073E7AF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FA0846152587E4610073E7AF /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FA0846142587E4610073E7AF /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FA5B86DF256E38AF00FFEC14 /* CoreDataMyCar.xcdatamodeld */ = {

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,13 +21,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let StartUpNavigationController = UINavigationController()
-        StartUpNavigationController.navigationBar.isHidden = true
+        let NC = UINavigationController()
+        NC.navigationBar.isHidden = true
         let startUpVC = StartUpViewController()
-//        let startUpVC = TestViewController()
-        StartUpNavigationController.pushViewController(startUpVC, animated: false)
-        window?.rootViewController = StartUpNavigationController
-        window?.makeKeyAndVisible()
+//        if Auth.auth().currentUser != nil {
+//            let HomeTBC = RootTabBarController.init()
+//            HomeTBC.modalPresentationStyle = .fullScreen
+//            NC.present(HomeTBC, animated: true, completion: .none)
+//            NC.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//            NC.navigationBar.shadowImage = UIImage()
+//            NC.navigationBar.isTranslucent = true
+//            NC.view.backgroundColor = UIColor.clear
+//        } else {
+            NC.pushViewController(startUpVC, animated: false)
+            window?.rootViewController = NC
+            window?.makeKeyAndVisible()
+//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
