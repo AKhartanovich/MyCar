@@ -33,34 +33,6 @@ class StartUpViewController: UIViewController {
         stackView.addArrangedSubview(loginButton)
         stackView.addArrangedSubview(signUpButton)
         loginButton.height(constant: 40)
-        
-        struct User: Codable {
-            var id: Int
-            var name : String
-            var login: String
-            var email: String
-            
-            enum CodingCase: String, CodingKey {
-                case id, name
-                case login = "username"
-            }
-        }
-        
-//        NetworkLayer.shared.getUsers()
-//        NetworkLayer.shared.getUsers2(pathComponent: "users", httpMethod: "GET")
-//        NetworkLayer.shared.getUsers(pathComponent: "users", httpMethod: "GET") { (data, error) in
-//            guard let data = data else {return}
-//
-//            let users = try? JSONDecoder().decode([User].self, from: data)
-//            print(users?.first?.name)
-//        }
-//        NetworkLayer1.shared.getInfo()
-//        NetworkLayer.shared.getUsers(pathComponent: "/api/0.3/?callback=?&cmd=getModel&model=11459", httpMethod: "GET") { (data, error) in
-//            guard let data = data else {return}
-//            print(String(data: data, encoding: .utf8))
-//        }
-        
-        
     }
 
     override func viewDidLoad() {
@@ -84,28 +56,5 @@ class StartUpViewController: UIViewController {
     loginButton = CustomButton(cornerRadius: 20, title: "Login", titleColor: .white, borderWidth: 1.3, borderColor: UIColor.rgb(red: 113, green: 134, blue: 255).cgColor, closure: {
         self.navigationController?.pushViewController(LoginViewController(), animated: true)
     })
-    }
-    
+    }   
 }
-
-
-//class Logger {
-//
-//    static func log(_ object: Any,_ message: String = "") {
-//        print(object)
-//    }
-//
-//    static func logToFile(_ object: Any,_ message: String = "") {
-//        //save to file
-//
-//        //print to console
-//        print(object)
-//    }
-//
-//}
-//
-//extension StartUpViewController {
-//    override var description: String {
-//       "Custom class with "
-//    }
-//}
