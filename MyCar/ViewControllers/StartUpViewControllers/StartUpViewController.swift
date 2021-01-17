@@ -55,14 +55,22 @@ class StartUpViewController: UIViewController {
 //            print(users?.first?.name)
 //        }
 //        NetworkLayer1.shared.getInfo()
-        NetworkLayer.shared.getUsers(pathComponent: "/api/0.3/?callback=?&cmd=getModel&model=11459", httpMethod: "GET") { (data, error) in
-            guard let data = data else {return}
-            print(String(data: data, encoding: .utf8))
-        }
+//        NetworkLayer.shared.getUsers(pathComponent: "/api/0.3/?callback=?&cmd=getModel&model=11459", httpMethod: "GET") { (data, error) in
+//            guard let data = data else {return}
+//            print(String(data: data, encoding: .utf8))
+//        }
+        
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+//        assert(true, "Something Wrong")
+        
+//        Logger.log(self)
     }
     
     func createsignUpButton() {
@@ -79,3 +87,25 @@ class StartUpViewController: UIViewController {
     }
     
 }
+
+
+//class Logger {
+//
+//    static func log(_ object: Any,_ message: String = "") {
+//        print(object)
+//    }
+//
+//    static func logToFile(_ object: Any,_ message: String = "") {
+//        //save to file
+//
+//        //print to console
+//        print(object)
+//    }
+//
+//}
+//
+//extension StartUpViewController {
+//    override var description: String {
+//       "Custom class with "
+//    }
+//}
