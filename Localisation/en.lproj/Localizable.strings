@@ -6,3 +6,4 @@
   Copyright © 2021 khartanovichao. All rights reserved.
 */
 "authentication.button.login" = "LogIn";
+"You have %1$d sold %2$d apples" = "You have %1$d sold %2$d apples";

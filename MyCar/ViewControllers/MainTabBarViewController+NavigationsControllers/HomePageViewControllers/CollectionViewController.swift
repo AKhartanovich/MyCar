@@ -13,16 +13,9 @@ class CollectionViewController: UIViewController {
     var collectionView: UICollectionView?
     var layoutOne: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .vertical
+        layout.scrollDirection = .horizontal
         return layout
     }()
-    
-//    var layoutTwo: UICollectionViewFlowLayout = {
-//        let layout = UICollectionViewFlowLayout()
-////        layout.itemSize = CGSize(width: 150, height: 150)
-////        layout.scrollDirection = .horizontal
-//        return layout
-//    }()
     let reuseID = "cell"
     
     

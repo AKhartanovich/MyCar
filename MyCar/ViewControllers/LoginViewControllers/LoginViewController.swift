@@ -76,7 +76,11 @@ class LoginViewController: UIViewController {
         signUpButton.height(constant: 40)
     }
     func createLoginButton () {
-        loginButton = CustomButton(backgroundColor: myColor, cornerRadius: 20, title: "Login", titleColor: .white, closure: {
+        let titleString = NSLocalizedString("authentication.button.login", comment: "")
+        //"You have sold 1000 apps in \(value) month"
+        let stringFormat = NSLocalizedString("You have %1$d sold %2$d apples", comment: "")
+        let outputString = String.localizedStringWithFormat(stringFormat, 10, 20)
+        loginButton = CustomButton(backgroundColor: myColor, cornerRadius: 20, title: outputString, titleColor: .white, closure: {
             guard let email = self.emailTextField.text else {return}
             guard let password = self.passwordTextField.text else {return}
             authInFireBaseWith(email: email, password: password, vc: self) {

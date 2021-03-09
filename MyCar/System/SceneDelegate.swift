@@ -23,20 +23,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let NC = UINavigationController()
         NC.navigationBar.isHidden = true
-        let startUpVC = StartUpViewController()
 //        if Auth.auth().currentUser != nil {
+//            let startUpVC = StartUpViewController()
+//                NC.pushViewController(startUpVC, animated: false)
+//                window?.rootViewController = NC
+//                window?.makeKeyAndVisible()
+//        }else {
 //            let HomeTBC = RootTabBarController.init()
 //            HomeTBC.modalPresentationStyle = .fullScreen
-//            NC.present(HomeTBC, animated: true, completion: .none)
+//            self.present(HomeTBC, animated: true, completion: .none)
 //            NC.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 //            NC.navigationBar.shadowImage = UIImage()
 //            NC.navigationBar.isTranslucent = true
 //            NC.view.backgroundColor = UIColor.clear
-//        } else {
+//        }
+        let startUpVC = StartUpViewController()
             NC.pushViewController(startUpVC, animated: false)
             window?.rootViewController = NC
             window?.makeKeyAndVisible()
-//        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

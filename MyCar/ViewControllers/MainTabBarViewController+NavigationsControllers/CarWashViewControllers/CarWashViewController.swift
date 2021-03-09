@@ -19,6 +19,12 @@ class CarWashViewController: UIViewController {
         return stackView
     }()
     
+    let labelViewWithInfo: UIView = {
+       let l = UIView()
+        l.activateConstraint()
+        return l
+    }()
+    
     let infoLabel: UILabel = {
        let label = UILabel()
         label.activateConstraint()
@@ -42,7 +48,6 @@ class CarWashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
         
     }
     
@@ -55,5 +60,7 @@ class CarWashViewController: UIViewController {
         infoLabel.top(equalTo: view.topAnchor, constant: 40)
         infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         infoLabel.height(constant: 40)
+        
+        
     }
 }

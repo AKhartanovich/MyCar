@@ -7,3 +7,4 @@
 */
 
 "authentication.button.login" = "Логин";
+"You have %1$d sold %2$d apples" = "%2$d Вы продали яблок %1$d";
