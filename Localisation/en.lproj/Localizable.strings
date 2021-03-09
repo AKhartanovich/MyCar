@@ -1,0 +1,8 @@
+/* 
+  Localisation.strings
+  MyCar
+
+  Created by MacBook on 25.01.21.
+  Copyright © 2021 khartanovichao. All rights reserved.
+*/
+"authentication.button.login" = "LogIn";
